@@ -28,7 +28,7 @@ email: mestrella@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   Hello, I'm Naveen, a freelance front-end developer
   and UI designer. Check out my projects on GitHub
-baseurl: "/" # the subpath of your site, e.g. /blog/
+baseurl: "/material/" # the subpath of your site, e.g. /blog/
 url: "http://jmarkstar.github.io/" # the base hostname & protocol for your site
 twitter_username: jmarkstar
 github_username:  jmarkstar
