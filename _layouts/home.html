@@ -18,21 +18,13 @@ Description: Awesome dude, awesome life
 <head>
 {% include head.html %}
 </head>
-<body class="post-template page" itemscope itemtype="http://schema.org/WebPage">
-
-<main id="notepad-page-container" class="notepad-page-container" role="main">
-    
-    
-        <header class="notepad-page-header">
-            <div class="notepad-page-menu-header">
-                
-                    <a class="notepad-blog-logo" href="{{ site.url }}">
-                        <img src="{{ site.url }}/images/{{ site.logo }}" alt="Blog Logo">
-                    </a>
-                
-                
-                
-                <div class="notepad-blog-menu">      
+<body class="home-template" itemscope itemtype="http://schema.org/WebPage">
+<header class="notepad-site-head">
+    <div class="notepad-site-head-menu">
+        <a class="notepad-blog-logo" href="{{ site.url }}"><img src="{{ site.url }}/images/{{ site.logo }}" alt="Blog Logo" /></a>
+        
+        
+        <div class="notepad-blog-menu">      
     <div class="notepad-mobile-menu show-for-small">
         <a href="#"><i class="fa fa-bars"></i></a>
     </div>
@@ -42,28 +34,33 @@ Description: Awesome dude, awesome life
         </li>
 {% for link in site.links %}
             <li>{% if link.external %}
-                    <a href="{{ link.url }}">{{ link.title }}</a>
-                {% else %}
-                    <a href="{{ site.url }}{{ link.url }}">{{ link.title }}</a>
-                {% endif %} </li>
+            <a href="{{ link.url }}">{{ link.title }}</a>
+            {% else %}
+            <a href="{{ site.url }}{{ link.url }}">{{ link.title }}</a>
+            {% endif %} </li>
 {% endfor %}            
            <li><a href="{{ site.url }}/feed.xml" title="Atom/RSS feed"><i class="icon-rss"></i> Feed</a></li>
     </ul>
 </div>
-            </div>
-            <div class="notepad-page-title row">
-                <div class="small-12 columns">
-                    <h1>{{ page.title }}</h1>
-                </div>
-            </div>
-        </header>
+        <div class="clearfix"></div>
+    </div>
+    <div class="notepad-site-head-content" >
+        <div class="notepad-site-head-bg"></div>
+        <h1 class="notepad-blog-title">
+            <span class="notepad-site-head-title-bg">
+                {{ site.title }}
+            </span>
+        </h1>
+        <h2 class="notepad-blog-description">{{ site.description }}</h2>
+    </div>
+</header>
 
-<article class="notepad-page-content">
-                    <div>{{ content }}</div>
-</article>
-        <div class="cf"></div>
-    {% include footer.html %}
+
+<main class="notepad-content" role="main">
+
+            {{ content }}
 </main>
+    {% include footer.html %}
 
 {% include scripts.html %}  
 </body>
