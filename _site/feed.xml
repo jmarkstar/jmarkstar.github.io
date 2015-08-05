@@ -9,10 +9,10 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
 <link rel="alternate" type="text/html" href="http://localhost:4000/" />
-<updated>2015-08-05T04:12:56+01:00</updated>
+<updated>2015-08-05T14:17:39-05:00</updated>
 <id>http://localhost:4000/</id>
 <author>
-  <name>Marco Estrella cardenas</name>
+  <name>Marco Estrella Cardenas</name>
   <uri>http://localhost:4000/</uri>
   <email>mestrella.1991@gmail.com</email>
 </author>
@@ -22,11 +22,11 @@
   <title type="html"><![CDATA[Instalando Jekyll en Windows]]></title>
   <link rel="alternate" type="text/html" href="http://localhost:4000/blog/instalando-jekyll-en-windows"/>
   <id>http://localhost:4000/blog/instalando-jekyll-en-windows</id>
-  <published>2015-08-04T00:00:00+01:00</published>
+  <published>2015-08-04T00:00:00-05:00</published>
   <updated>2015-08-04T00:00:00-00:00</updated>
   
   <author>
-    <name>Marco Estrella cardenas</name>
+    <name>Marco Estrella Cardenas</name>
     <uri>http://localhost:4000</uri>
     <email>mestrella.1991@gmail.com</email>
   </author>
@@ -39,7 +39,7 @@ que podemos usarlo para crear nuestro sitio personal, de organización y de nues
 
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/blog/instalando-jekyll-en-windows&quot;&gt;Instalando Jekyll en Windows&lt;/a&gt; was originally published by Marco Estrella cardenas at &lt;a href=&quot;http://localhost:4000&quot;&gt;JMarkStar&lt;/a&gt; on August 04, 2015.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/blog/instalando-jekyll-en-windows&quot;&gt;Instalando Jekyll en Windows&lt;/a&gt; was originally published by Marco Estrella Cardenas at &lt;a href=&quot;http://localhost:4000&quot;&gt;JMarkStar&lt;/a&gt; on August 04, 2015.&lt;/p&gt;</content>
 </entry>
 
 
@@ -47,11 +47,11 @@ que podemos usarlo para crear nuestro sitio personal, de organización y de nues
   <title type="html"><![CDATA[Why Jekyll?]]></title>
   <link rel="alternate" type="text/html" href="http://localhost:4000/webdevelopment/why-jekyll"/>
   <id>http://localhost:4000/webdevelopment/why-jekyll</id>
-  <published>2014-07-23T00:00:00+01:00</published>
+  <published>2014-07-23T00:00:00-05:00</published>
   <updated>2014-07-23T00:00:00-00:00</updated>
   
   <author>
-    <name>Marco Estrella cardenas</name>
+    <name>Marco Estrella Cardenas</name>
     <uri>http://localhost:4000</uri>
     <email>mestrella.1991@gmail.com</email>
   </author>
@@ -82,7 +82,7 @@ que podemos usarlo para crear nuestro sitio personal, de organización y de nues
 &lt;p&gt;Enjoy!&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/webdevelopment/why-jekyll&quot;&gt;Why Jekyll?&lt;/a&gt; was originally published by Marco Estrella cardenas at &lt;a href=&quot;http://localhost:4000&quot;&gt;JMarkStar&lt;/a&gt; on July 23, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/webdevelopment/why-jekyll&quot;&gt;Why Jekyll?&lt;/a&gt; was originally published by Marco Estrella Cardenas at &lt;a href=&quot;http://localhost:4000&quot;&gt;JMarkStar&lt;/a&gt; on July 23, 2014.&lt;/p&gt;</content>
 </entry>
 
 
@@ -90,11 +90,11 @@ que podemos usarlo para crear nuestro sitio personal, de organización y de nues
   <title type="html"><![CDATA[Introducing Notepad]]></title>
   <link rel="alternate" type="text/html" href="http://localhost:4000/personal/introducing-notepad"/>
   <id>http://localhost:4000/personal/introducing-notepad</id>
-  <published>2014-07-19T00:00:00+01:00</published>
+  <published>2014-07-19T00:00:00-05:00</published>
   <updated>2014-07-19T00:00:00-00:00</updated>
   
   <author>
-    <name>Marco Estrella cardenas</name>
+    <name>Marco Estrella Cardenas</name>
     <uri>http://localhost:4000</uri>
     <email>mestrella.1991@gmail.com</email>
   </author>
@@ -134,7 +134,7 @@ You can set post image covers by using only Ghost narkdown editor just place som
 &lt;p&gt;&lt;a href=&quot;http://foundation.zurb.com/docs/&quot;&gt;More info about Foundation framework&lt;/a&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/personal/introducing-notepad&quot;&gt;Introducing Notepad&lt;/a&gt; was originally published by Marco Estrella cardenas at &lt;a href=&quot;http://localhost:4000&quot;&gt;JMarkStar&lt;/a&gt; on July 19, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/personal/introducing-notepad&quot;&gt;Introducing Notepad&lt;/a&gt; was originally published by Marco Estrella Cardenas at &lt;a href=&quot;http://localhost:4000&quot;&gt;JMarkStar&lt;/a&gt; on July 19, 2014.&lt;/p&gt;</content>
 </entry>
 
 
@@ -142,10 +142,10 @@ You can set post image covers by using only Ghost narkdown editor just place som
   <title type="html"><![CDATA[Documentation]]></title>
   <link rel="alternate" type="text/html" href="http://localhost:4000/theme/documentation"/>
   <id>http://localhost:4000/theme/documentation</id>
-  <published>2014-06-19T00:00:00+01:00</published>
-  <updated>2014-06-19T00:00:00+01:00</updated>
+  <published>2014-06-19T00:00:00-05:00</published>
+  <updated>2014-06-19T00:00:00-05:00</updated>
   <author>
-    <name>Marco Estrella cardenas</name>
+    <name>Marco Estrella Cardenas</name>
     <uri>http://localhost:4000</uri>
     <email>mestrella.1991@gmail.com</email>
   </author>
@@ -496,7 +496,7 @@ You can set post image covers by using only Ghost narkdown editor just place som
 &lt;/div&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/theme/documentation&quot;&gt;Documentation&lt;/a&gt; was originally published by Marco Estrella cardenas at &lt;a href=&quot;http://localhost:4000&quot;&gt;JMarkStar&lt;/a&gt; on June 19, 2014.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/theme/documentation&quot;&gt;Documentation&lt;/a&gt; was originally published by Marco Estrella Cardenas at &lt;a href=&quot;http://localhost:4000&quot;&gt;JMarkStar&lt;/a&gt; on June 19, 2014.&lt;/p&gt;</content>
 </entry>
 
 
@@ -504,10 +504,10 @@ You can set post image covers by using only Ghost narkdown editor just place som
   <title type="html"><![CDATA[Post with Cover Image and Text]]></title>
   <link rel="alternate" type="text/html" href="http://localhost:4000/theme/readability-feature-post"/>
   <id>http://localhost:4000/theme/readability-feature-post</id>
-  <published>2013-05-23T00:00:00+01:00</published>
-  <updated>2013-05-23T00:00:00+01:00</updated>
+  <published>2013-05-23T00:00:00-05:00</published>
+  <updated>2013-05-23T00:00:00-05:00</updated>
   <author>
-    <name>Marco Estrella cardenas</name>
+    <name>Marco Estrella Cardenas</name>
     <uri>http://localhost:4000</uri>
     <email>mestrella.1991@gmail.com</email>
   </author>
@@ -558,7 +558,7 @@ You can set post image covers by using only Ghost narkdown editor just place som
 &lt;p&gt;Aliquip enim artisan dolor post-ironic. Pug tote bag Marfa, deserunt pour-over Portland wolf eu odio intelligentsia american apparel ugh ea. Sunt viral et, 3 wolf moon gastropub pug id. Id fashion axe est typewriter, mlkshk Portland art party aute brunch. Sint pork belly Cosby sweater, deep v mumblecore kitsch american apparel. Try-hard direct trade tumblr sint skateboard. Adipisicing bitters excepteur biodiesel, pickled gastropub aute veniam.&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/theme/readability-feature-post&quot;&gt;Post with Cover Image and Text&lt;/a&gt; was originally published by Marco Estrella cardenas at &lt;a href=&quot;http://localhost:4000&quot;&gt;JMarkStar&lt;/a&gt; on May 23, 2013.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/theme/readability-feature-post&quot;&gt;Post with Cover Image and Text&lt;/a&gt; was originally published by Marco Estrella Cardenas at &lt;a href=&quot;http://localhost:4000&quot;&gt;JMarkStar&lt;/a&gt; on May 23, 2013.&lt;/p&gt;</content>
 </entry>
 
 
@@ -566,10 +566,10 @@ You can set post image covers by using only Ghost narkdown editor just place som
   <title type="html"><![CDATA[Testing Readability with a Bunch of Text]]></title>
   <link rel="alternate" type="text/html" href="http://localhost:4000/articles/readability-post"/>
   <id>http://localhost:4000/articles/readability-post</id>
-  <published>2012-05-22T00:00:00+01:00</published>
-  <updated>2012-05-22T00:00:00+01:00</updated>
+  <published>2012-05-22T00:00:00-05:00</published>
+  <updated>2012-05-22T00:00:00-05:00</updated>
   <author>
-    <name>Marco Estrella cardenas</name>
+    <name>Marco Estrella Cardenas</name>
     <uri>http://localhost:4000</uri>
     <email>mestrella.1991@gmail.com</email>
   </author>
@@ -618,7 +618,7 @@ You can set post image covers by using only Ghost narkdown editor just place som
 &lt;p&gt;Aliquip enim artisan dolor post-ironic. Pug tote bag Marfa, deserunt pour-over Portland wolf eu odio intelligentsia american apparel ugh ea. Sunt viral et, 3 wolf moon gastropub pug id. Id fashion axe est typewriter, mlkshk Portland art party aute brunch. Sint pork belly Cosby sweater, deep v mumblecore kitsch american apparel. Try-hard direct trade tumblr sint skateboard. Adipisicing bitters excepteur biodiesel, pickled gastropub aute veniam.&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/readability-post&quot;&gt;Testing Readability with a Bunch of Text&lt;/a&gt; was originally published by Marco Estrella cardenas at &lt;a href=&quot;http://localhost:4000&quot;&gt;JMarkStar&lt;/a&gt; on May 22, 2012.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/readability-post&quot;&gt;Testing Readability with a Bunch of Text&lt;/a&gt; was originally published by Marco Estrella Cardenas at &lt;a href=&quot;http://localhost:4000&quot;&gt;JMarkStar&lt;/a&gt; on May 22, 2012.&lt;/p&gt;</content>
 </entry>
 
 
@@ -626,11 +626,11 @@ You can set post image covers by using only Ghost narkdown editor just place som
   <title type="html"><![CDATA[Theme Elements]]></title>
   <link rel="alternate" type="text/html" href="http://localhost:4000/articles/theme-elements"/>
   <id>http://localhost:4000/articles/theme-elements</id>
-  <published>2011-03-10T00:00:00+00:00</published>
+  <published>2011-03-10T00:00:00-05:00</published>
   <updated>2013-05-31T00:00:00-00:00</updated>
   
   <author>
-    <name>Marco Estrella cardenas</name>
+    <name>Marco Estrella Cardenas</name>
     <uri>http://localhost:4000</uri>
     <email>mestrella.1991@gmail.com</email>
   </author>
@@ -742,7 +742,7 @@ You can set post image covers by using only Ghost narkdown editor just place som
 &lt;p&gt;&lt;a href=&quot;#&quot; class=&quot;button&quot;&gt;Default Button&lt;/a&gt;&lt;/p&gt;
 
   
-  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/theme-elements&quot;&gt;Theme Elements&lt;/a&gt; was originally published by Marco Estrella cardenas at &lt;a href=&quot;http://localhost:4000&quot;&gt;JMarkStar&lt;/a&gt; on March 10, 2011.&lt;/p&gt;</content>
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/articles/theme-elements&quot;&gt;Theme Elements&lt;/a&gt; was originally published by Marco Estrella Cardenas at &lt;a href=&quot;http://localhost:4000&quot;&gt;JMarkStar&lt;/a&gt; on March 10, 2011.&lt;/p&gt;</content>
 </entry>
 
 </feed>

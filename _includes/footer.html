@@ -6,6 +6,14 @@
     </div>
     <div class="social-icons">
         
+        {% if site.owner.linkedin %}
+        <a href="https://www.linkedin.com/in/{{ site.owner.linkedin }}">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-linkedin fa-stack-1x"></i>
+            </span>
+        </a>
+        {% endif %}
         {% if site.owner.twitter %}
         <a href="http://twitter.com/{{ site.owner.twitter }}">
             <span class="fa-stack fa-lg">
@@ -13,8 +21,7 @@
                 <i class="fa fa-twitter fa-stack-1x"></i>
             </span>
         </a>
-        {% endif %}
-<!--     
+        {% endif %}  
         {% if site.owner.google_plus %}
         <a href="{{ site.owner.google_plus }}">
             <span class="fa-stack fa-lg">
@@ -23,7 +30,6 @@
             </span>
         </a>
         {% endif %}
-
         {% if site.owner.instagram %}
         <a href="http://instagram.com/{{ site.owner.instagram }}">
             <span class="fa-stack fa-lg">
@@ -31,8 +37,7 @@
                 <i class="fa fa-instagram fa-stack-1x"></i>
             </span>
         </a>
-        {% endif %}
--->        
+        {% endif %}        
         {% if site.owner.github %}
         <a href="http://github.com/{{ site.owner.github }}">
             <span class="fa-stack fa-lg">
@@ -41,7 +46,6 @@
             </span>
         </a>
         {% endif %}
-<!--
         {% if site.owner.facebook %}
         <a href="http://facebook.com/{{ site.owner.facebook }}">
             <span class="fa-stack fa-lg">
@@ -50,7 +54,14 @@
             </span>
         </a>
         {% endif %}
--->
+        {% if site.owner.rss %}
+        <a href="{{ site.url }}/{{ site.owner.rss }}" title="Atom/RSS">
+            <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-rss fa-stack-1x"></i>
+            </span>
+        </a>
+        {% endif %}
     </div>
     
     <div class="cf"></div>
