@@ -36,8 +36,8 @@ links:
     url: /
     external: false
     icon: home
-  - title: Publicaciones Destacadas
-    url: /featured
+#  - title: Los mas Destacados
+#    url: /featured
   - title: Categorías
     url: /categories
 #  - title: About
