@@ -52,6 +52,10 @@
 
     
     <url>
+        <loc>http://localhost:4000/oracle/cambiando-puerto-a-oracle-web-console</loc>
+    </url>
+    
+    <url>
         <loc>http://localhost:4000/blog/instalando-jekyll-en-windows</loc>
     </url>
     
