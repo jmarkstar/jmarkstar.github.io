@@ -27,3 +27,4 @@ para finalizar, guardamos los cambios y cerramos con el siguiente comando de vi:
 
 Para probar si ya tenemos nuestro gradle correctamente instalado, realizaremos la verificación con el siguiente comando: gradle -v
 
+![verificacion-gradle]({{ site.url }}/images/postimages/gradle/gradle-verification.png)
