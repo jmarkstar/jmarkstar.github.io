@@ -4,7 +4,7 @@ title: "Instalando Gradle"
 description: 
 headline: 
 modified: 2015-12-07
-category: blog
+category: gradle
 tags: []
 imagefeature: cover9.jpg
 comments: true
