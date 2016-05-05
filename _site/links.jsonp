@@ -38,6 +38,11 @@ callback([
   {
     "text": "Cambiando El puerto de Oracle Web Console",
     "href": "http://localhost:4000/oracle/cambiando-puerto-a-oracle-web-console"
+  } ,
+
+  {
+    "text": "Instalando Gradle",
+    "href": "http://localhost:4000/gradle/instalando-gradle"
   } 
 
 ])
