@@ -5,8 +5,8 @@ logo:             logo.png
 disqus_shortname: jmarkstar
 share:            true
 dropcap:			true
-url: http://jmarkstar.com
-#url: http://localhost:4000
+#url: http://jmarkstar.com
+url: http://localhost:4000
 
 # Owner/author information
 owner:
@@ -14,7 +14,7 @@ owner:
   avatar:         jmarkstar.png
   email:          mestrella.1991@gmail.com
   # Use the coder's toolbox at http://coderstoolbox.net/string/#!encoding=xml&action=encode&charset=us_ascii to encode your description into XML string
-  description:    Software engineer, Lover of Java technologies.
+  description:    Software engineer, Java and Android lover.
   # Social networking links used in footer. Update and remove as you like.
   twitter:        jmarkstar
   linkedin:        marcoestrellacardenas

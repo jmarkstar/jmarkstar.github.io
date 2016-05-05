@@ -9,7 +9,7 @@
 <generator uri="https://github.com/mojombo/jekyll">Jekyll</generator>
 <link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
 <link rel="alternate" type="text/html" href="http://localhost:4000/" />
-<updated>2015-08-09T18:39:03+01:00</updated>
+<updated>2016-05-05T10:31:26-05:00</updated>
 <id>http://localhost:4000/</id>
 <author>
   <name>Marco Estrella Cardenas</name>
@@ -19,10 +19,48 @@
 
 
 <entry>
+  <title type="html"><![CDATA[Instalando Gradle]]></title>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/gradle/instalando-gradle"/>
+  <id>http://localhost:4000/gradle/instalando-gradle</id>
+  <published>2015-12-07T00:00:00-05:00</published>
+  <updated>2015-12-07T00:00:00-00:00</updated>
+  
+  <author>
+    <name>Marco Estrella Cardenas</name>
+    <uri>http://localhost:4000</uri>
+    <email>mestrella.1991@gmail.com</email>
+  </author>
+  
+  <content type="html">
+  
+    &lt;p&gt;Primeramente temenos que agregar la ruta del gradle como variable del sistema en nuestra computadora, para esto usaremos vi en caso de mac.&lt;/p&gt;
+
+&lt;p&gt;vi ~/.profile&lt;/p&gt;
+
+&lt;p&gt;GRADLE_HOME=/Users/{yourUsername}/Library/gradle;&lt;/p&gt;
+
+&lt;p&gt;export GRADLE_HOME&lt;/p&gt;
+
+&lt;p&gt;export PATH=$PATH:$GRADLE_HOME/bin&lt;/p&gt;
+
+&lt;p&gt;para finalizar, guardamos los cambios y cerramos con el siguiente comando de vi:&lt;/p&gt;
+
+&lt;p&gt;:wq&lt;/p&gt;
+
+&lt;p&gt;Para probar si ya tenemos nuestro gradle correctamente instalado, realizaremos la verificación con el siguiente comando: gradle -v&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&quot;http://localhost:4000/images/postimages/gradle/gradle-verification.png&quot; alt=&quot;verificacion-gradle&quot; /&gt;&lt;/p&gt;
+
+  
+  &lt;p&gt;&lt;a href=&quot;http://localhost:4000/gradle/instalando-gradle&quot;&gt;Instalando Gradle&lt;/a&gt; was originally published by Marco Estrella Cardenas at &lt;a href=&quot;http://localhost:4000&quot;&gt;JMarkStar&lt;/a&gt; on December 07, 2015.&lt;/p&gt;</content>
+</entry>
+
+
+<entry>
   <title type="html"><![CDATA[Cambiando El puerto de Oracle Web Console]]></title>
   <link rel="alternate" type="text/html" href="http://localhost:4000/oracle/cambiando-puerto-a-oracle-web-console"/>
   <id>http://localhost:4000/oracle/cambiando-puerto-a-oracle-web-console</id>
-  <published>2015-08-09T00:00:00+01:00</published>
+  <published>2015-08-09T00:00:00-05:00</published>
   <updated>2015-08-09T00:00:00-00:00</updated>
   
   <author>
@@ -51,7 +89,7 @@ estos normalmente se ejecutan en el puerto 8080 pero como ya tenemos ocupado est
   <title type="html"><![CDATA[Instalando Jekyll en Windows]]></title>
   <link rel="alternate" type="text/html" href="http://localhost:4000/blog/instalando-jekyll-en-windows"/>
   <id>http://localhost:4000/blog/instalando-jekyll-en-windows</id>
-  <published>2015-08-04T00:00:00+01:00</published>
+  <published>2015-08-04T00:00:00-05:00</published>
   <updated>2015-08-04T00:00:00-00:00</updated>
   
   <author>
@@ -76,7 +114,7 @@ que podemos usarlo para crear nuestro sitio personal, de organización y de nues
   <title type="html"><![CDATA[Why Jekyll?]]></title>
   <link rel="alternate" type="text/html" href="http://localhost:4000/webdevelopment/why-jekyll"/>
   <id>http://localhost:4000/webdevelopment/why-jekyll</id>
-  <published>2014-07-23T00:00:00+01:00</published>
+  <published>2014-07-23T00:00:00-05:00</published>
   <updated>2014-07-23T00:00:00-00:00</updated>
   
   <author>
@@ -119,7 +157,7 @@ que podemos usarlo para crear nuestro sitio personal, de organización y de nues
   <title type="html"><![CDATA[Introducing Notepad]]></title>
   <link rel="alternate" type="text/html" href="http://localhost:4000/personal/introducing-notepad"/>
   <id>http://localhost:4000/personal/introducing-notepad</id>
-  <published>2014-07-19T00:00:00+01:00</published>
+  <published>2014-07-19T00:00:00-05:00</published>
   <updated>2014-07-19T00:00:00-00:00</updated>
   
   <author>
@@ -171,8 +209,8 @@ You can set post image covers by using only Ghost narkdown editor just place som
   <title type="html"><![CDATA[Documentation]]></title>
   <link rel="alternate" type="text/html" href="http://localhost:4000/theme/documentation"/>
   <id>http://localhost:4000/theme/documentation</id>
-  <published>2014-06-19T00:00:00+01:00</published>
-  <updated>2014-06-19T00:00:00+01:00</updated>
+  <published>2014-06-19T00:00:00-05:00</published>
+  <updated>2014-06-19T00:00:00-05:00</updated>
   <author>
     <name>Marco Estrella Cardenas</name>
     <uri>http://localhost:4000</uri>
@@ -533,8 +571,8 @@ You can set post image covers by using only Ghost narkdown editor just place som
   <title type="html"><![CDATA[Post with Cover Image and Text]]></title>
   <link rel="alternate" type="text/html" href="http://localhost:4000/theme/readability-feature-post"/>
   <id>http://localhost:4000/theme/readability-feature-post</id>
-  <published>2013-05-23T00:00:00+01:00</published>
-  <updated>2013-05-23T00:00:00+01:00</updated>
+  <published>2013-05-23T00:00:00-05:00</published>
+  <updated>2013-05-23T00:00:00-05:00</updated>
   <author>
     <name>Marco Estrella Cardenas</name>
     <uri>http://localhost:4000</uri>
@@ -595,8 +633,8 @@ You can set post image covers by using only Ghost narkdown editor just place som
   <title type="html"><![CDATA[Testing Readability with a Bunch of Text]]></title>
   <link rel="alternate" type="text/html" href="http://localhost:4000/articles/readability-post"/>
   <id>http://localhost:4000/articles/readability-post</id>
-  <published>2012-05-22T00:00:00+01:00</published>
-  <updated>2012-05-22T00:00:00+01:00</updated>
+  <published>2012-05-22T00:00:00-05:00</published>
+  <updated>2012-05-22T00:00:00-05:00</updated>
   <author>
     <name>Marco Estrella Cardenas</name>
     <uri>http://localhost:4000</uri>
@@ -655,7 +693,7 @@ You can set post image covers by using only Ghost narkdown editor just place som
   <title type="html"><![CDATA[Theme Elements]]></title>
   <link rel="alternate" type="text/html" href="http://localhost:4000/articles/theme-elements"/>
   <id>http://localhost:4000/articles/theme-elements</id>
-  <published>2011-03-10T00:00:00+00:00</published>
+  <published>2011-03-10T00:00:00-05:00</published>
   <updated>2013-05-31T00:00:00-00:00</updated>
   
   <author>
