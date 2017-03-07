@@ -1,0 +1,21 @@
+global:
+  tagline: English
+  home: Home
+  about: About me
+  copyright: All rights reserved
+  recent_post: Recent Posts
+  about_intro: I became a fanboy of Java since I was 18 and started making mobiles apps with J2ME and web pages with JSP and Servlets for university’s projects. I found my first job at age 19 using different frameworks to work with relational databases, web systems, web services and mobile apps since that moment. I really like android platform, for this reason I change my specialization to the mobile world. Now, I’m 24 and continue to learning C++ to improve my skills on the android platform and Swift to make iOS apps too.
+  contact: 
+    title: Contact me
+    name: Name
+    email: Email
+    message: Message
+    intro: This is an example Contact page. If you want to make changes then do so in the contact.html file.
+    more_info:
+  tag:
+    title: Topics
+  langs:
+    spanish: Spanish
+    english: English
+
+
