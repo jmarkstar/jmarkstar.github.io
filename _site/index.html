@@ -1,370 +1,160 @@
 <!DOCTYPE html>
-<html>
+<!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
+<!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
+<!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
+<!--[if gt IE 8]><!--> 
+<html class="no-js"> <!--<![endif]-->
+
 <head>
-<meta charset="utf-8">
-<title>INICIO &vert; JMARKSTAR</title>
-<meta name="description" content="The personal blog of Marco Estrella Cardenas.">
-<meta name="keywords" content="Marco, informatic, engineering, blog, university">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <title>JMarkStar</title>
 
-<!-- Twitter Cards -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://localhost:4000/images/logo.png">
-<meta name="twitter:title" content="INICIO">
-<meta name="twitter:description" content="The personal blog of Marco Estrella Cardenas.">
-<meta name="twitter:creator" content="@jmarkstar">
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="/assets/img/favicon.ico" />
+    
+    <!-- Stylesheet -->
+    <link rel="stylesheet" href="/assets/css/style.css">
+   
+    <!-- Modernizr -->
+    <script src="/assets/js/modernizr.custom.15390.js" type="text/javascript"></script>
 
-<!-- Open Graph -->
-<meta property="og:locale" content="en_US">
-<meta property="og:type" content="article">
-<meta property="og:title" content="INICIO">
-<meta property="og:description" content="The personal blog of Marco Estrella Cardenas.">
-<meta property="og:url" content="http://localhost:4000/index.html">
-<meta property="og:site_name" content="JMarkStar">
-<meta property="og:image" content="http://localhost:4000/images/">
+    <!--[if IE 8]><link rel="stylesheet" href="/assets/css/ie.css"><![endif]-->
+    <link rel="canonical" href="http://localhost:4000/">
 
+    <!-- Come and get me RSS readers -->
+    <link rel="alternate" type="application/rss+xml" title="Marco Estrella" href="http://localhost:4000/feed.xml" />
 
+     
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+	<script>
+	   (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
+	ga('create', 'UA-65998111-1', 'auto');
+	ga('send', 'pageview');
 
-
-<link rel="canonical" href="http://localhost:4000/">
-<link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="JMarkStar Feed">
-
-
-<!-- http://t.co/dKP3o1e -->
-<meta name="HandheldFriendly" content="True">
-<meta name="MobileOptimized" content="320">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
-
-    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Open+Sans:400,600,300,800,700' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="http://localhost:4000/assets/css/vendor/font-awesome.min.css">
-    <link rel="stylesheet" href="http://localhost:4000/assets/css/vendor/normalize.css">
-    <link rel="stylesheet" href="http://localhost:4000/assets/css/vendor/nprogress.css">
-    <link rel="stylesheet" href="http://localhost:4000/assets/css/vendor/foundation.min.css">
-    <link rel="stylesheet" href="http://localhost:4000/assets/css/style.css">
-    <link rel="stylesheet" href="http://localhost:4000/assets/css/post.css">
-
-
-
-
-
-<!-- Icons -->
-<!-- 16x16 -->
-<link rel="shortcut icon" href="http://localhost:4000/favicon.ico">
-<!-- 32x32 -->
-<link rel="shortcut icon" href="http://localhost:4000/favicon.png">
-<!-- 57x57 (precomposed) for iPhone 3GS, pre-2011 iPod Touch and older Android devices -->
-<link rel="apple-touch-icon-precomposed" href="http://localhost:4000/images/apple-touch-icon-precomposed.png">
-<!-- 72x72 (precomposed) for 1st generation iPad, iPad 2 and iPad mini -->
-<link rel="apple-touch-icon-precomposed" sizes="72x72" href="http://localhost:4000/images/apple-touch-icon-72x72-precomposed.png">
-<!-- 114x114 (precomposed) for iPhone 4, 4S, 5 and post-2011 iPod Touch -->
-<link rel="apple-touch-icon-precomposed" sizes="114x114" href="http://localhost:4000/images/apple-touch-icon-114x114-precomposed.png">
-<!-- 144x144 (precomposed) for iPad 3rd and 4th generation -->
-<link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://localhost:4000/images/apple-touch-icon-144x144-precomposed.png">
-
+	</script>
+    
 </head>
-<body class="home-template" itemscope itemtype="http://schema.org/WebPage">
-<header class="notepad-site-head">
-    <div class="notepad-site-head-menu">
-        <a class="notepad-blog-logo" href="http://localhost:4000"><img src="http://localhost:4000/images/logo.png" alt="Blog Logo" /></a>
-        
-        
-        <div class="notepad-blog-menu">      
-    <div class="notepad-mobile-menu show-for-small">
-        <a href="#"><i class="fa fa-bars"></i></a>
-    </div>
-    <ul class="notepad-menu">
-        <li class="notepad-mobile-close-btn show-for-small text-right">
-            <a href="#"><i class="fa fa-times"></i></a>
-        </li>
 
-            <li>
-            <a href="http://localhost:4000/">Inicio</a>
-             </li>
+<body>
 
-            <li>
-            <a href="http://localhost:4000/featured">Los mas Destacados</a>
-             </li>
+	<!-- begin .header -->
+<div class="header">
+ <div class="container">
+     <h1 class="logo"><a href="/">Marco Estrella</a></h1>
+     <nav class="nav-collapse">
+         <ul class="noList">
+         		
+		            <li> <a href="/">Inicio</a></li>
+                    <li> <a href="/tag">Temas</a></li>
+                    <li> <a href="/about">Sobre mí</a></li>
+                    <li> <a href="/contact">Contáctame</a></li>
+		        
+         </ul>
+     </nav>
 
-            <li>
-            <a href="http://localhost:4000/categories">Categorías</a>
-             </li>
-            
-    </ul>
+ </div>
 </div>
-        <div class="clearfix"></div>
-    </div>
-    <div class="notepad-site-head-content" >
-        <div class="notepad-site-head-bg"></div>
-        <h1 class="notepad-blog-title">
-            <span class="notepad-site-head-title-bg">
-                JMarkStar
-            </span>
-        </h1>
-        <h2 class="notepad-blog-description">Blogear es chevere</h2>
-    </div>
-</header>
+<!-- end .header -->
 
+   <div class="content">
+      	<div class="container">
 
-<main class="notepad-content" role="main">
-
-            
-	
-    <article class="notepad-index-post post row">
-        <div class="small-12 medium-3 large-2 columns datetime">
-            <span class="notepad-post-meta">
-                <time datetime="2015-12-07T00:00:00-05:00">
-                    <span class="day">
-                        07
-                    </span>
-                    <span class="month-year">
-                        December 2015
-                    </span>
-                </time>
-            </span>
-        </div>
-        <div class="small-12 medium-9 large-10 columns">
-            <header class="notepad-post-header">
-                <h3 class="notepad-post-title">
-                    <a href="http://localhost:4000/gradle/instalando-gradle">
-                        Instalando Gradle
-                    </a>
-                </h3>
-            </header>
-            <section class="notepad-post-excerpt">
-                <p>Primeramente temenos que agregar la ruta del gradle como variable del sistema en nuestra computadora, para esto usaremos vi en caso de mac. vi ~/.profile GRADLE_HOME=/Users/{yourUsername}/Library/gradle; export GRADLE_HOME export PATH=$PATH:$GRADLE_HOME/bin para finalizar, guardamos los cambios y cerramos con el siguiente...</p>
-            </section>
-            
-                <div class="notepad-index-post-tags">
-                <a href="http://localhost:4000/categories/index.html#gradle" title="Other posts from the Gradle category">Gradle</a>
-                    
-                </div>
-            
-        </div>
-    </article>
-	
-    <article class="notepad-index-post post row">
-        <div class="small-12 medium-3 large-2 columns datetime">
-            <span class="notepad-post-meta">
-                <time datetime="2015-08-09T00:00:00-05:00">
-                    <span class="day">
-                        09
-                    </span>
-                    <span class="month-year">
-                        August 2015
-                    </span>
-                </time>
-            </span>
-        </div>
-        <div class="small-12 medium-9 large-10 columns">
-            <header class="notepad-post-header">
-                <h3 class="notepad-post-title">
-                    <a href="http://localhost:4000/oracle/cambiando-puerto-a-oracle-web-console">
-                        Cambiando El puerto de Oracle Web Console
-                    </a>
-                </h3>
-            </header>
-            <section class="notepad-post-excerpt">
-                <p>Cuando instalas oracle en tu ordenador, ademas de instalarse el motor de la base de datos tambien se añade una aplicación web en el puerto 8080, este web app te permitirá administrar la base de datos visualmente desde un browser...</p>
-            </section>
-            
-                <div class="notepad-index-post-tags">
-                <a href="http://localhost:4000/categories/index.html#oracle" title="Other posts from the Oracle category">Oracle</a>
-                    
-                </div>
-            
-        </div>
-    </article>
-	
-    <article class="notepad-index-post post row">
-        <div class="small-12 medium-3 large-2 columns datetime">
-            <span class="notepad-post-meta">
-                <time datetime="2015-08-04T00:00:00-05:00">
-                    <span class="day">
-                        04
-                    </span>
-                    <span class="month-year">
-                        August 2015
-                    </span>
-                </time>
-            </span>
-        </div>
-        <div class="small-12 medium-9 large-10 columns">
-            <header class="notepad-post-header">
-                <h3 class="notepad-post-title">
-                    <a href="http://localhost:4000/blog/instalando-jekyll-en-windows">
-                        Instalando Jekyll en Windows
-                    </a>
-                </h3>
-            </header>
-            <section class="notepad-post-excerpt">
-                <p>Jekyll es una herramienta que permite generar sitios web estáticos, tomando una estructura de carpetas como plantilla que contienen archivos de texto en varios formatos, como por ejemplo Markdown. Ademas, Jekyll es el motor detrás de GitHub Pages, lo que...</p>
-            </section>
-            
-                <div class="notepad-index-post-tags">
-                <a href="http://localhost:4000/categories/index.html#blog" title="Other posts from the Blog category">Blog</a>
-                    
-                </div>
-            
-        </div>
-    </article>
-	
-    <article class="notepad-index-post post row">
-        <div class="small-12 medium-3 large-2 columns datetime">
-            <span class="notepad-post-meta">
-                <time datetime="2014-07-23T00:00:00-05:00">
-                    <span class="day">
-                        23
-                    </span>
-                    <span class="month-year">
-                        July 2014
-                    </span>
-                </time>
-            </span>
-        </div>
-        <div class="small-12 medium-9 large-10 columns">
-            <header class="notepad-post-header">
-                <h3 class="notepad-post-title">
-                    <a href="http://localhost:4000/webdevelopment/why-jekyll">
-                        Why Jekyll?
-                    </a>
-                </h3>
-            </header>
-            <section class="notepad-post-excerpt">
-                <p>Well, I guess it’s quite obvious that I really enjoy working with Jekyll — with good reasons — so let me just briefly suggest some of the benefits of using a static site generator in favor of a heavy dynamic,...</p>
-            </section>
-            
-                <div class="notepad-index-post-tags">
-                <a href="http://localhost:4000/categories/index.html#webdevelopment" title="Other posts from the Webdevelopment category">Webdevelopment</a>
-                    
-                </div>
-            
-        </div>
-    </article>
-	
-    <article class="notepad-index-post post row">
-        <div class="small-12 medium-3 large-2 columns datetime">
-            <span class="notepad-post-meta">
-                <time datetime="2014-07-19T00:00:00-05:00">
-                    <span class="day">
-                        19
-                    </span>
-                    <span class="month-year">
-                        July 2014
-                    </span>
-                </time>
-            </span>
-        </div>
-        <div class="small-12 medium-9 large-10 columns">
-            <header class="notepad-post-header">
-                <h3 class="notepad-post-title">
-                    <a href="http://localhost:4000/personal/introducing-notepad">
-                        Introducing Notepad
-                    </a>
-                </h3>
-            </header>
-            <section class="notepad-post-excerpt">
-                <p>Notepad is a Jekyll theme which is very simple, clean and beautiful. This theme is good for any blog. Main Features: Zurb Foundation 5 - css framework Fullscreen post covers with header wich will be bright or dark according to...</p>
-            </section>
-            
-                <div class="notepad-index-post-tags">
-                <a href="http://localhost:4000/categories/index.html#personal" title="Other posts from the Personal category">Personal</a>
-                    
-                </div>
-            
-        </div>
-    </article>
-	
-    <nav class="pagination" role="navigation">
+		<div class="footer-links"> 
+        	<ul class="noList"> 
+	        	<li><a href="/">
+	                  <img src="/assets/img/peru.png" alt="Peruvian Flat" title="Español" style="width:30px;height:30px;">
+	            	</a>
+	            </li>
+	            <li>
+	            	<a href="/en/">
+	                   <img src="/assets/img/usa.png" alt="UK Flat" title="Ingles" style="width:30px;height:30px;">
+	            	</a>
+	            </li>
+        	</ul>
+		</div>
+         <div class="home" id="home">
+  <h1 class="pageTitle">Los más Recientes</h1>
+  <ul class="posts noList">
     
-    <span class="newer-posts faded"><i class="fa fa-chevron-left"></i> Newer</span>
-    
-
-    
-    <span class="page-number">Page 1 of 2</span>
-    	 
-        <a class="older-posts" href="http://localhost:4000/page2/">Older <i class="fa fa-chevron-right"></i></a>
-    	
-	</nav>
-
-</main>
-    <footer class="notepad-site-footer">
-    <div class="copyright">
-         <section>All content copyright <a href="http://localhost:4000/about">Marco Estrella Cardenas</a> &copy; 2016 &bull; All rights reserved.</section>
-         <br/>
-         <section>Proudly published with <a class="icon-ghost" href="https://jekyllrb.com/">Jekyll</a></section>
-    </div>
-    <div class="social-icons">
+      <li>
+        <span class="date">November 29, 2016</span>
         
+          <h3><a class="post-link" href="/starting-with-maven/">Iniciando con Maven</a></h3>
         
-        <a href="https://www.linkedin.com/in/marcoestrellacardenas">
-            <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
-                <i class="fa fa-linkedin fa-stack-1x"></i>
-            </span>
-        </a>
-        
-        
-        <a href="http://twitter.com/jmarkstar">
-            <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
-                <i class="fa fa-twitter fa-stack-1x"></i>
-            </span>
-        </a>
+        <p class="description">
           
-        
-                
-        
-        <a href="http://github.com/jmarkstar">
-            <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
-                <i class="fa fa-github fa-stack-1x"></i>
-            </span>
-        </a>
-        
-        
-        
-        <a href="http://localhost:4000/feed.xml" title="Atom/RSS">
-            <span class="fa-stack fa-lg">
-                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
-                <i class="fa fa-rss fa-stack-1x"></i>
-            </span>
-        </a>
-        
-    </div>
+            La serie de artículos para la creación de aplicaciones java con maven se dará inicio con esta entrega que consiste en la explicación de como funciona Maven y sus plugin, su instalación y la creación de 2 proyectos java, una libreria y una aplicaci...
+          
+        </p>
+      </li>
     
-    <div class="cf"></div>
-</footer>
+  </ul>
+</div>
 
-    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script>window.jQuery || document.write('<script src="http://localhost:4000/assets/js/vendor/jquery-1.11.1.min.js"><\/script>')</script>
-    <script src="http://localhost:4000/assets/js/vendor/modernizr.js"></script>
-    <script src="http://localhost:4000/assets/js/foundation.min.js"></script>
-    
-    <script src="http://localhost:4000/assets/js/notepad.js"></script>
-    <script src="http://localhost:4000/assets/js/scripts.min.js"></script>
-    <script src="http://localhost:4000/assets/js/vendor/nprogress.js"></script>
+      </div>
+   </div><!-- end .content -->
+   
+   <div class="footer">
+   <div class="container">
+      <p class="copy">Marco Estrella Cardenas &copy; 2017 &bull; Todos los derechos reservados.</p>
 
-    <script>
-      $(document).foundation();
-    </script>
-    <script type='text/javascript'>console.log("HMFaysal Notepad Theme Version 2.0");</script>
-    <script type='text/javascript'>console.log("https://alum.mit.edu/www/hmfaysal");</script>
+      <div class="footer-links"> 
+         <ul class="noList"> 
+            
+            <li><a href="https://pe.linkedin.com/in/jmarkstar">
 
-<!-- Google Analytics block -->
+                  <svg id="linkedin" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" style="height: 30px; width: 30px;">
+                  <circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+                  <path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(1.7)" d="M5.88307542,26.8231512 L5.88307542,8.52433895 L0.227370038,8.52433895 L0.227370038,26.8231512 L5.88307542,26.8231512 Z M5.88307542,2.03821455 C5.84938823,0.400659962 4.75801564,-0.846153846 2.98505434,-0.846153846 C1.21163158,-0.846153846 0.0528846154,0.400659962 0.0528846154,2.03821455 C0.0528846154,3.64020234 1.17794439,4.92307692 2.9172185,4.92307692 L2.95090569,4.92307692 C4.75801564,4.92307692 5.88307542,3.64020234 5.88307542,2.03821455 Z M15.1100418,26.8231517 L15.1100418,16.3973729 C15.1100418,15.8394014 15.1503704,15.28143 15.3144472,14.8836682 C15.7630341,13.7682778 16.7839561,12.6136637 18.498199,12.6136637 C20.7438958,12.6136637 22.152278,13.8881587 22.152278,16.3973727 L22.152278,26.8231516 L27.8461538,26.8231517 L27.8461538,16.1183872 C27.8461538,10.3839878 24.7850453,7.71566901 20.7019099,7.71566901 C17.3540813,7.71566901 15.8845724,9.58735929 15.0686083,10.861302 L15.1094893,8.41391226 L9.425462,8.41391226 C9.50722415,10.1657215 9.425462,26.8231516 9.425462,26.8231516 L15.1100418,26.8231517 Z"></path>
+                  </svg>
 
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-  ga('create', 'UA-65998111-1', 'auto');
-  ga('require', 'displayfeatures');
-  ga('send', 'pageview');
-</script>
+            </a></li>
+            
+            
+            <li><a href="https://github.com/jmarkstar">
+                  <svg id="github" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" style="height: 30px; width: 30px;">
+                  <circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+                  <path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)" d="M50,1C22.938,1,1,22.938,1,50s21.938,49,49,49s49-21.938,49-49S77.062,1,50,1z M79.099,79.099 c-3.782,3.782-8.184,6.75-13.083,8.823c-1.245,0.526-2.509,0.989-3.79,1.387v-7.344c0-3.86-1.324-6.699-3.972-8.517 c1.659-0.16,3.182-0.383,4.57-0.67c1.388-0.287,2.855-0.702,4.402-1.245c1.547-0.543,2.935-1.189,4.163-1.938 c1.228-0.75,2.409-1.723,3.541-2.919s2.082-2.552,2.847-4.067s1.372-3.334,1.818-5.455c0.446-2.121,0.67-4.458,0.67-7.01 c0-4.945-1.611-9.155-4.833-12.633c1.467-3.828,1.308-7.991-0.478-12.489l-1.197-0.143c-0.829-0.096-2.321,0.255-4.474,1.053 c-2.153,0.798-4.57,2.105-7.249,3.924c-3.797-1.053-7.736-1.579-11.82-1.579c-4.115,0-8.039,0.526-11.772,1.579 c-1.69-1.149-3.294-2.097-4.809-2.847c-1.515-0.75-2.727-1.26-3.637-1.532c-0.909-0.271-1.754-0.439-2.536-0.503 c-0.782-0.064-1.284-0.079-1.507-0.048c-0.223,0.031-0.383,0.064-0.478,0.096c-1.787,4.53-1.946,8.694-0.478,12.489 c-3.222,3.477-4.833,7.688-4.833,12.633c0,2.552,0.223,4.889,0.67,7.01c0.447,2.121,1.053,3.94,1.818,5.455 c0.765,1.515,1.715,2.871,2.847,4.067s2.313,2.169,3.541,2.919c1.228,0.751,2.616,1.396,4.163,1.938 c1.547,0.543,3.014,0.957,4.402,1.245c1.388,0.287,2.911,0.511,4.57,0.67c-2.616,1.787-3.924,4.626-3.924,8.517v7.487 c-1.445-0.43-2.869-0.938-4.268-1.53c-4.899-2.073-9.301-5.041-13.083-8.823c-3.782-3.782-6.75-8.184-8.823-13.083 C9.934,60.948,8.847,55.56,8.847,50s1.087-10.948,3.231-16.016c2.073-4.899,5.041-9.301,8.823-13.083s8.184-6.75,13.083-8.823 C39.052,9.934,44.44,8.847,50,8.847s10.948,1.087,16.016,3.231c4.9,2.073,9.301,5.041,13.083,8.823 c3.782,3.782,6.75,8.184,8.823,13.083c2.143,5.069,3.23,10.457,3.23,16.016s-1.087,10.948-3.231,16.016 C85.848,70.915,82.88,75.317,79.099,79.099L79.099,79.099z"></path>
+                  </svg>
+            </a></li>
+             
+            
+            <li><a href="https://twitter.com/jmarkstar">
+                  <svg id="twitter" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" style="height: 30px; width: 30px;"><circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+                  <path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)" d="M99.001,19.428c-3.606,1.608-7.48,2.695-11.547,3.184c4.15-2.503,7.338-6.466,8.841-11.189 c-3.885,2.318-8.187,4-12.768,4.908c-3.667-3.931-8.893-6.387-14.676-6.387c-11.104,0-20.107,9.054-20.107,20.223 c0,1.585,0.177,3.128,0.52,4.609c-16.71-0.845-31.525-8.895-41.442-21.131C6.092,16.633,5.1,20.107,5.1,23.813 c0,7.017,3.55,13.208,8.945,16.834c-3.296-0.104-6.397-1.014-9.106-2.529c-0.002,0.085-0.002,0.17-0.002,0.255 c0,9.799,6.931,17.972,16.129,19.831c-1.688,0.463-3.463,0.71-5.297,0.71c-1.296,0-2.555-0.127-3.783-0.363 c2.559,8.034,9.984,13.882,18.782,14.045c-6.881,5.424-15.551,8.657-24.971,8.657c-1.623,0-3.223-0.096-4.796-0.282 c8.898,5.738,19.467,9.087,30.82,9.087c36.982,0,57.206-30.817,57.206-57.543c0-0.877-0.02-1.748-0.059-2.617 C92.896,27.045,96.305,23.482,99.001,19.428z"></path>
+                  </svg>
+            </a></li>
+            
+            
+            <li><a href="mailto:mestrella.1991@gmail.com">
+                  <svg id="mail" class="custom-icon" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 100 100" style="height: 30px; width: 30px;"><circle class="outer-shape" cx="50" cy="50" r="48" style="opacity: 1;"></circle>
+                  <path class="inner-shape" style="opacity: 1;" transform="translate(25,25) scale(0.5)" d="M50,1C22.938,1,1,22.938,1,50s21.938,49,49,49s49-21.938,49-49S77.062,1,50,1z M25.5,25.5h49 c0.874,0,1.723,0.188,2.502,0.542L50,57.544L22.998,26.041C23.777,25.687,24.626,25.499,25.5,25.5L25.5,25.5z M19.375,68.375v-36.75 c0-0.128,0.005-0.256,0.014-0.383l17.96,20.953L19.587,69.958C19.448,69.447,19.376,68.916,19.375,68.375L19.375,68.375z M74.5,74.5 h-49c-0.541,0-1.072-0.073-1.583-0.212l17.429-17.429L50,66.956l8.653-10.096l17.429,17.429C75.572,74.427,75.041,74.5,74.5,74.5 L74.5,74.5z M80.625,68.375c0,0.541-0.073,1.072-0.211,1.583L62.652,52.195l17.96-20.953c0.008,0.127,0.014,0.255,0.014,0.383 L80.625,68.375L80.625,68.375z"></path>
+                  </svg>
+            </a></li>
+            
+            
+         </ul>
+      </div>
+   </div>
+</div><!-- end .footer --> 
 
-<!-- Finish Google Analytics block -->
+   <!-- Add jQuery and other scripts -->
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 
-<script>NProgress.start();var interval=setInterval(function(){NProgress.inc()},1000);jQuery(window).load(function(){clearInterval(interval);NProgress.done()});jQuery(window).unload(function(){NProgress.start()});</script>  
+<script src="/assets/js/jquery-1.11.2.min.js"></script>
+<script src="/assets/js/dropcap.min.js"></script>
+<script src="/assets/js/responsive-nav.min.js"></script>
+<script src="/assets/js/scripts.js"></script> 
+
+  
+
 </body>
+
 </html>
