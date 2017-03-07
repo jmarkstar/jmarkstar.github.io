@@ -7,11 +7,6 @@ future: true
 baseurl: ""
 permalink: /:title/
 
-# Plugins
-gems: 
-  - jekyll-multiple-languages-plugin
-  - jekyll-paginate
-
 owner:
   name: Marco Estrella Cardenas
 
@@ -27,3 +22,8 @@ google_analytics: "UA-65998111-1"
 languages: ["es", "en"]
 
 exclude_from_localizations: ["assets", "javascript"]
+
+# Plugins
+gems: 
+  - jekyll-multiple-languages-plugin
+  - jekyll-paginate
