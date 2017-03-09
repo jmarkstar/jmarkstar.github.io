@@ -207,3 +207,5 @@ Wait a moment and our first app will be displayed in the emulator.
 I hope this article has been helpful.
 
 Thanks for the visit.
+
+{% include comments.html %} 

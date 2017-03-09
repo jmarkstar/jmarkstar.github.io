@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Iniciando con Maven
-description: La serie de artículos para la creación de aplicaciones java con maven se dará inicio con esta entrega que consiste en la explicación de como funciona Maven y sus plugin, su instalación y la creación de 2 proyectos java, una libreria y una aplicacion web. 
+description: La serie de artículos para la creación de aplicaciones java con maven se dará inicio con esta entrega que consiste en la explicación de como funciona Maven y sus plugin, su instalación y la creación de 2 proyectos java, una libreria y una aplicacion web.
 cover: cover.jpg
 date: 2016-11-29 15:07:00
 categories: JavaTools
@@ -15,7 +15,7 @@ Sin mas preámbulos, comencemos a analizar Maven.
 
 ### ¿Que es Maven?
 
-Si ya has escuchado un poco de maven antes de que entres a leer este artículo, talvez hayas oído que Maven es una herramienta usada para construir artefactos o binarios desplegables desde el código fuente, una herramienta enfocafa a la compilación, empaquetamiento, testeo y distribución de artefactos. Pues permiteme explicarte que Maven es mas que eso, claro, también hace lo que acabamos de mensionar. En este artículo analizaremos Maven hasta el punto que puedas construir tu propio proyecto y saber que esta ocurriendo por debajo de la mesa. 
+Si ya has escuchado un poco de maven antes de que entres a leer este artículo, talvez hayas oído que Maven es una herramienta usada para construir artefactos o binarios desplegables desde el código fuente, una herramienta enfocafa a la compilación, empaquetamiento, testeo y distribución de artefactos. Pues permiteme explicarte que Maven es mas que eso, claro, también hace lo que acabamos de mensionar. En este artículo analizaremos Maven hasta el punto que puedas construir tu propio proyecto y saber que esta ocurriendo por debajo de la mesa.
 
 Bien, en pocas palabras, Maven es una herramienta de administración de proyectos que abarca muchas cosas que nos falicitaría la vida como desarrollador si los sabemos manejar con criterio, entre ellas tenemos:
 
@@ -37,8 +37,8 @@ Por convención, Maven tiene su propia forma de organizar las carpetas de un pro
 
 * **{NombreProyecto}**/src/main/java es donde almacenaremos todos los archivos **`*.java`** que vamos a crear para nuestro proyecto.
 * **{NombreProyecto}**/src/main/resources, en este, almacenaremos otros tipos de archivos que no son **`*.java`** y que estan relacionados a nuestro proyecto. Por ejemplo los archivos **`*.properties`** o **`*.xml`**.
-* **{NombreProyecto}**/src/test/, este es donde almacenaremos todos los archivos relacionados a las pruebas de nuestro proyecto. Podriamos crear las carpetas **java** y **resources** dentro de ella también y asi tenerlos mas ordenado. 
-* **{NombreProyecto}**/src/target, y para terminar, este es donde se guardan todos los archivos generados despues de la compilación. Por ejemplo los bytecodes, el ejecutable **`*.jar`**, **`*.war`** o **`*.ear`** dependiendo del caso, además reportes y archivos de documentación. 
+* **{NombreProyecto}**/src/test/, este es donde almacenaremos todos los archivos relacionados a las pruebas de nuestro proyecto. Podriamos crear las carpetas **java** y **resources** dentro de ella también y asi tenerlos mas ordenado.
+* **{NombreProyecto}**/src/target, y para terminar, este es donde se guardan todos los archivos generados despues de la compilación. Por ejemplo los bytecodes, el ejecutable **`*.jar`**, **`*.war`** o **`*.ear`** dependiendo del caso, además reportes y archivos de documentación.
 
 Entonces, podríamos concluir que Maven usa una estructura estándar de proyecto que nos hace independiente de los IDEs, ya que podemos abrir nuestro proyecto Maven en nuestro IDE favorito sin problemas y ejecutarlo mediante
 
@@ -50,13 +50,13 @@ Este es una de las cualidades mas sencillas y poderosas de maven que han hecho q
 
 #### Reutilización universal de lógica de construcción mediante plugins
 
-Cuando descargamos Maven desde la [pagina oficial](https://maven.apache.org/download.cgi) notaremos que no pesa mucho, es debido a que maven funciona por medio de **plugins**(complementos en español) y cuando maven es recién descargado, solo tiene los plugins para la construcción y reporte de errores en su interior. 
+Cuando descargamos Maven desde la [pagina oficial](https://maven.apache.org/download.cgi) notaremos que no pesa mucho, es debido a que maven funciona por medio de **plugins**(complementos en español) y cuando maven es recién descargado, solo tiene los plugins para la construcción y reporte de errores en su interior.
 
 Los plugins contienen lógica que le añade nuevos comportamientos a maven para la construcción de un proyecto. Maven tiene plugins para todo, desde la compilación de código java, generación de reportes y despliegues a un servidor de aplicaciónes, por ejemplo **Glassfish** o **Wildfly**. Los plugins son centralmente mantenidos en un repositorio remoto y universalmente compartidos. Esto quiere decir que si actualmente estas usando algun plugin, por ejemplo uno para desplegar los archivos **`*.war`** en **Glassfish** y en el futuro este plugin tiene cambios, mejoras y/o nuevas versiones. Estos cambios pueden ser facilmente actualizados en el archivo **pom.xml** que es el
 
-#### Modelo conceptual de un Proyecto 
+#### Modelo conceptual de un Proyecto
 
-Cuando vamos a trabajar con Maven, no solo vamos a compilar codigo fuente a bytecode. Sino que nosotros desarrollaremos una descripción de un proyecto de software y asignaremos un conjunto unico de coordenadas para cada proyecto. Describiremos los atributos del proyecto como por ejemplo acerca de su licencia, quienes son sus desarrolladores y contribuidores, de que otros proyectos depende y etc. Toda esta información se colocará en el archivo **pom.xml** que es la columna vertebral de un proyecto maven. 
+Cuando vamos a trabajar con Maven, no solo vamos a compilar codigo fuente a bytecode. Sino que nosotros desarrollaremos una descripción de un proyecto de software y asignaremos un conjunto unico de coordenadas para cada proyecto. Describiremos los atributos del proyecto como por ejemplo acerca de su licencia, quienes son sus desarrolladores y contribuidores, de que otros proyectos depende y etc. Toda esta información se colocará en el archivo **pom.xml** que es la columna vertebral de un proyecto maven.
 
 Para llevar la teoría y la práctica conjuntamente primero
 
@@ -84,9 +84,9 @@ Para poder usar los comandos de maven en nuestra consola, vamos agregar a maven 
 
 * Primero, abrimos el archivo **bash_profile** donde indicaremos la ruta de maven con el comando **sudo nano ~/.bash_profile**.
 * Agregamos la ruta de la carpeta **bin** de maven en dicho archivo.
-  
+
   <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/starting-with-maven/maven_environment_variable.png" width="450" title="Configurando variable de entorno" alt="Configurando variable de entorno"></p>
-  
+
 * Presionamos **Ctl+X** para salir, **Y** para guardar los cambios y **enter** para terminar.
 * Finalmente, ejecutamos los cambios en el archivo **bash_profile** con el comando **source ~/.bash_profile**.
 
@@ -96,7 +96,7 @@ Para comprobar que maven haya sido instalado correctamente ejecutamos el comando
 
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/starting-with-maven/maven_verification.png" width="450" title="Verificación de instalación" alt="Verificación de instalación"></p>
 
-Ahora ya estamos listos para crear nuestro primer proyecto maven y continuar explicando algunos conceptos mas de maven, vamos a 
+Ahora ya estamos listos para crear nuestro primer proyecto maven y continuar explicando algunos conceptos mas de maven, vamos a
 
 ### Crear un proyecto java simple
 
@@ -135,26 +135,26 @@ Esta es la jerarquía de carpetas y archivos que el plugin **archetype** ha gene
 Como ya hemos revisado la estructura estándar de un proyecto de maven, vamos a pasar defrente a ver el archivo **pom.xml** que **archetype** ha generado.
 
 ```xml
-<project xmlns="http://maven.apache.org/POM/4.0.0" 
+<project xmlns="http://maven.apache.org/POM/4.0.0"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
-  
+
   <!-- Identificador de la compañia -->
   <groupId>com.jmarkstar</groupId>
-  
+
   <!-- Identificador del proyecto -->
   <artifactId>myproject</artifactId>
-  
+
   <!-- Tipo de proyecto: jar, war  -->
   <packaging>jar</packaging>
-  
+
   <!-- Versión del proyecto -->
   <version>1.0-SNAPSHOT</version>
-  
+
   <!-- Nombre del proyecto -->
   <name>MyProject</name>
-  
+
   <!-- URL donde se encuentra el proyecto publicado -->
   <url>http://jmarkstar.com</url>
 
@@ -168,13 +168,13 @@ Como ya hemos revisado la estructura estándar de un proyecto de maven, vamos a 
       <version>3.8.1</version>
       <scope>test</scope>
     </dependency>
-    
+
   </dependencies>
 
 </project>
 ```
-Con esta pequeña introducción a **pom.xml** donde hemos descrito algunos de sus atributos vamos a 
- 
+Con esta pequeña introducción a **pom.xml** donde hemos descrito algunos de sus atributos vamos a
+
 #### Modificar el proyecto generado
 
 **archetype** además ha generado nuestros paquetes y una clase **App.java** en la carpera **src/java**, como queremos probar las cualidades de maven vamos a modificar esta clase y añadir algunas clases nuevas para nuestro ejemplo en la carpeta **src/main/java/com/jmarkstar/myproject**. Vamos a comenzar creando clase modelo **Cliente**.
@@ -192,7 +192,7 @@ public class Client {
 	private String address;
 	private Integer age;
 
-    public Client(Integer id, String name, String lastName, 
+    public Client(Integer id, String name, String lastName,
     	String address, Integer age){
     	this.id = id;
     	this.name= name;
@@ -256,7 +256,7 @@ public class ClientService {
 		return clientList.size();
 	}
 }
-``` 
+```
 Por ultimo, modificamos la clase **App.java**.
 
 ```java
@@ -265,7 +265,7 @@ package com.jmarkstar.myproject;
 /**
  * Main Class
  */
-public class App 
+public class App
 {
     public static void main( String[] args )
     {
@@ -286,7 +286,7 @@ public class App
 }
 ```
 
-Ahora que hemos modificado y agregado mas classes a nuestro proyecto vamos a 
+Ahora que hemos modificado y agregado mas classes a nuestro proyecto vamos a
 
 #### Generar el artefacto
 
@@ -302,9 +302,9 @@ En la carpera **target** se encuentra nuestro artefacto con el siguiente formato
 
 #### Probar el artefacto
 
-Ejecutemos el comando 
+Ejecutemos el comando
 
-**java -cp target/myproject-1.0.SNAPSHOT.jar com.jmarkstar.myproject.App** 
+**java -cp target/myproject-1.0.SNAPSHOT.jar com.jmarkstar.myproject.App**
 
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/starting-with-maven/maven_execute_artifact.png" width="750"></p>
 
@@ -318,7 +318,7 @@ Un ciclo de vida de contrucción de un proyecto maven es una pila de fases o eta
 
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/starting-with-maven/maven_lifecycle_es.png" width="400" title="Ciclo de vida"></p>
 
-Maven trae consigo 3 ciclos de vida estandar: **clean**, **default** y **site**. Cada ciclo de vida tiene definida sus propias fases. 
+Maven trae consigo 3 ciclos de vida estandar: **clean**, **default** y **site**. Cada ciclo de vida tiene definida sus propias fases.
 
 Hay que tener en claro que nosotros no podemos ejecutar el ciclo de vida completo con su nombre. Por ejemplo **mvn default** no funcionaría, Tiene que ser por el nombre de la fase, por ejemplo **mvn install**. Maven buscará el ciclo de vida a la cual la fase pertenece y se ejecutará fase por fase de acuerdo al orden del ciclo de vida hasta llegar a pase ejecutada.
 
@@ -340,12 +340,16 @@ Hay que tener en claro que nosotros no podemos ejecutar el ciclo de vida complet
 ### Referencias
 
 <p style="text-align:center;">
-<a href="http://books.sonatype.com/mvnex-book/reference/public-book.html"
-target="_blank"><img src="{{ site.baseurl_root }}/assets/img/starting-with-maven/maven_by_example_book.jpg" width="150"></a>
+<a href="http://books.sonatype.com/mvnex-book/reference/public-book.html" target="_blank">
+<img src="{{ site.baseurl_root }}/assets/img/starting-with-maven/maven_by_example_book.jpg" width="150">
+</a>
 &nbsp;&nbsp;
-<a href="https://www.packtpub.com/application-development/mastering-apache-maven-3"
-target="_blank"><img src="{{ site.baseurl_root }}/assets/img/starting-with-maven/mastering_maven_3.jpg" width="150"></a>
+<a href="https://www.packtpub.com/application-development/mastering-apache-maven-3" target="_blank">
+<img src="{{ site.baseurl_root }}/assets/img/starting-with-maven/mastering_maven_3.jpg" width="150"></a>
 &nbsp;&nbsp;
-<a href="http://books.sonatype.com/mvnref-book/reference/index.html"
-target="_blank"><img src="{{ site.baseurl_root }}/assets/img/starting-with-maven/maven_the_complete_reference.jpg" width="150"></a>
+<a href="http://books.sonatype.com/mvnref-book/reference/index.html" target="_blank">
+<img src="{{ site.baseurl_root }}/assets/img/starting-with-maven/maven_the_complete_reference.jpg" width="150">
+</a>
 </p>
+
+{% include comments.html %}

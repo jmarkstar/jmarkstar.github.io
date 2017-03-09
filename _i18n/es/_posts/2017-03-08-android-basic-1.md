@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Instalando Android Studio 2.3
-description: Este articulo es el primero del curso de android basico. Aquí instalaremos y configuraremos de manera rapida android studio 2.3 para poder comenzar a codear.
+description: Este artículo es el primero del curso de android básico. Aquí instalaremos y configuraremos de manera rápida android studio 2.3 para poder comenzar a codear.
 cover: cover.jpg
 date: 2017-03-08 15:07:00
 categories: AndroidBasico
@@ -24,7 +24,7 @@ Sin mas preambulos, comencemos.
 
 **Nota: Si ya tienes instalado el JDK 7 u 8, puedes evitar este paso.**
 
-El primer paso es descargar e instalar Java 8. **¿Porque?**, Java es el lenguaje de programación escogido por google para poder crear aplicaciones moviles para android. Vamos a descargar el JDK de java. **¿Que es el JDK?**, Es un conjunto de herramientas que nos permitiran programar con Java, entre ellos tenemos a la **JVM**(La maquina viertual de java), **Librerias estandar** que seran usados con el Lenguaje Java y mas.
+El primer paso es descargar e instalar Java 8. **¿Porque?**, Java es el lenguaje de programación escogido por google para poder crear aplicaciones moviles para android. Vamos a descargar el JDK de java. **¿Que es el JDK?**, Es un conjunto de herramientas que nos permitiran programar con Java, entre ellos tenemos a la **JVM**(La maquina viertual de java), **Librerías estandar** que seran usados con el Lenguaje Java y mas.
 
 Nos dirigimos a la [pagina de oracle](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) para descargar el JDK(Java Development Kit).
 
@@ -217,3 +217,5 @@ Esperamos un momento y nuestro primero proyecto se estará visualizando en el em
 Espero que este articulo te haya sido de ayuda.
 
 Gracias por la visita.
+
+{% include comments.html %}

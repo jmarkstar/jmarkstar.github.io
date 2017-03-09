@@ -4,8 +4,8 @@ highlighter: rouge
 exclude: ["LICENSE.txt", "README.md"]
 
 future: true
-#baseurl: "http://jmarkstar.com"
-baseurl: ""
+baseurl: "http://jmarkstar.com"
+#baseurl: ""
 permalink: /:title/
 
 owner:
