@@ -214,26 +214,26 @@ Sin mas preámbulos, comencemos a analizar Maven.</p>
 
 <p>Como ya hemos revisado la estructura estándar de un proyecto de maven, vamos a pasar defrente a ver el archivo <strong>pom.xml</strong> que <strong>archetype</strong> ha generado.</p>
 
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span> 
+<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span>
   <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
   <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"</span><span class="nt">&gt;</span>
   <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
-  
+
   <span class="c">&lt;!-- Identificador de la compañia --&gt;</span>
   <span class="nt">&lt;groupId&gt;</span>com.jmarkstar<span class="nt">&lt;/groupId&gt;</span>
-  
+
   <span class="c">&lt;!-- Identificador del proyecto --&gt;</span>
   <span class="nt">&lt;artifactId&gt;</span>myproject<span class="nt">&lt;/artifactId&gt;</span>
-  
+
   <span class="c">&lt;!-- Tipo de proyecto: jar, war  --&gt;</span>
   <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
-  
+
   <span class="c">&lt;!-- Versión del proyecto --&gt;</span>
   <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-  
+
   <span class="c">&lt;!-- Nombre del proyecto --&gt;</span>
   <span class="nt">&lt;name&gt;</span>MyProject<span class="nt">&lt;/name&gt;</span>
-  
+
   <span class="c">&lt;!-- URL donde se encuentra el proyecto publicado --&gt;</span>
   <span class="nt">&lt;url&gt;</span>http://jmarkstar.com<span class="nt">&lt;/url&gt;</span>
 
@@ -247,7 +247,7 @@ Sin mas preámbulos, comencemos a analizar Maven.</p>
       <span class="nt">&lt;version&gt;</span>3.8.1<span class="nt">&lt;/version&gt;</span>
       <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
     <span class="nt">&lt;/dependency&gt;</span>
-    
+
   <span class="nt">&lt;/dependencies&gt;</span>
 
 <span class="nt">&lt;/project&gt;</span>
@@ -271,7 +271,7 @@ Sin mas preámbulos, comencemos a analizar Maven.</p>
 	<span class="kd">private</span> <span class="n">String</span> <span class="n">address</span><span class="o">;</span>
 	<span class="kd">private</span> <span class="n">Integer</span> <span class="n">age</span><span class="o">;</span>
 
-    <span class="kd">public</span> <span class="nf">Client</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">,</span> <span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">lastName</span><span class="o">,</span> 
+    <span class="kd">public</span> <span class="nf">Client</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">,</span> <span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">lastName</span><span class="o">,</span>
     	<span class="n">String</span> <span class="n">address</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">age</span><span class="o">){</span>
     	<span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
     	<span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">=</span> <span class="n">name</span><span class="o">;</span>
@@ -344,7 +344,7 @@ Sin mas preámbulos, comencemos a analizar Maven.</p>
 <span class="cm">/**
  * Main Class
  */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span> 
+<span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span>
 <span class="o">{</span>
     <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span> <span class="o">)</span>
     <span class="o">{</span>
@@ -415,21 +415,23 @@ Sin mas preámbulos, comencemos a analizar Maven.</p>
 <h3 id="referencias">Referencias</h3>
 
 <p style="text-align:center;">
-<a href="http://books.sonatype.com/mvnex-book/reference/public-book.html" target="_blank"><img src="http://jmarkstar.com/assets/img/starting-with-maven/maven_by_example_book.jpg" width="150" /></a>
+<a href="http://books.sonatype.com/mvnex-book/reference/public-book.html" target="_blank">
+<img src="http://jmarkstar.com/assets/img/starting-with-maven/maven_by_example_book.jpg" width="150" />
+</a>
 &nbsp;&nbsp;
-<a href="https://www.packtpub.com/application-development/mastering-apache-maven-3" target="_blank"><img src="http://jmarkstar.com/assets/img/starting-with-maven/mastering_maven_3.jpg" width="150" /></a>
+<a href="https://www.packtpub.com/application-development/mastering-apache-maven-3" target="_blank">
+<img src="http://jmarkstar.com/assets/img/starting-with-maven/mastering_maven_3.jpg" width="150" /></a>
 &nbsp;&nbsp;
-<a href="http://books.sonatype.com/mvnref-book/reference/index.html" target="_blank"><img src="http://jmarkstar.com/assets/img/starting-with-maven/maven_the_complete_reference.jpg" width="150" /></a>
+<a href="http://books.sonatype.com/mvnref-book/reference/index.html" target="_blank">
+<img src="http://jmarkstar.com/assets/img/starting-with-maven/maven_the_complete_reference.jpg" width="150" />
+</a>
 </p>
 
+<script src="https://apis.google.com/js/plusone.js"></script>
 
-				  <script src="https://apis.google.com/js/plusone.js"></script>
-<div class="g-comments"
-  data-href="http://jmarkstar.com/starting-with-maven/"
-  data-width="642"
-  data-first_party_property="BLOGGER"
-  data-view_type="FILTERED_POSTMOD">
-</div> 
+<div class="g-comments" data-href="http://jmarkstar.com/starting-with-maven/" data-width="642" data-first_party_property="BLOGGER" data-view_type="FILTERED_POSTMOD">
+</div>
+
       </div>
    </div><!-- end .content -->
 
