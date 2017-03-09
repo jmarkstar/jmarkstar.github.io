@@ -4,6 +4,7 @@ highlighter: rouge
 exclude: ["LICENSE.txt", "README.md"]
 
 future: true
+#baseurl: "http://jmarkstar.com"
 baseurl: ""
 permalink: /:title/
 
@@ -24,6 +25,6 @@ languages: ["es", "en"]
 exclude_from_localizations: ["assets", "javascript"]
 
 # Plugins
-gems: 
+gems:
   - jekyll-multiple-languages-plugin
   - jekyll-paginate

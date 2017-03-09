@@ -2,7 +2,7 @@
 <!--[if lt IE 7]><html class="no-js lt-ie9 lt-ie8 lt-ie7"><![endif]-->
 <!--[if IE 7]><html class="no-js lt-ie9 lt-ie8" <![endif]-->
 <!--[if IE 8]><html class="no-js lt-ie9" <![endif]-->
-<!--[if gt IE 8]><!--> 
+<!--[if gt IE 8]><!-->
 <html class="no-js"> <!--<![endif]-->
 
 {% include head.html %}
@@ -14,26 +14,28 @@
    <div class="content">
       	<div class="container">
 
-		<div class="footer-links"> 
-        	<ul class="noList"> 
-	        	<li><a href="{{ site.baseurl_root }}{{ page.url }}">
-	                  <img src="{{site.baseurl_root }}/assets/img/peru.png" alt="Peruvian Flat" title="{% t global.langs.spanish %}" style="width:30px;height:30px;">
-	            	</a>
-	            </li>
-	            <li>
-	            	<a href="{{ site.baseurl_root }}/en{{ page.url }}">
-	                   <img src="{{site.baseurl_root }}/assets/img/usa.png" alt="UK Flat" title="{% t global.langs.english %}" style="width:30px;height:30px;">
-	            	</a>
-	            </li>
-        	</ul>
-		</div>
-         {{ content }}
+					<div class="footer-links">
+			        	<ul class="noList">
+				        	<li><a href="{{ site.baseurl_root }}{{ page.url }}">
+				                  <img src="{{site.baseurl_root }}/assets/img/peru.png" alt="Peruvian Flat" title="{% t global.langs.spanish %}" style="width:30px;height:30px;">
+				            	</a>
+				            </li>
+				            <li>
+				            	<a href="{{ site.baseurl_root }}/en{{ page.url }}">
+				                   <img src="{{site.baseurl_root }}/assets/img/usa.png" alt="UK Flat" title="{% t global.langs.english %}" style="width:30px;height:30px;">
+				            	</a>
+				            </li>
+			        	</ul>
+					</div>
+          {{ content }}
+
+				  {% include comments.html %} 
       </div>
    </div><!-- end .content -->
-   
-   {% include footer.html %} 
 
-   {% include scripts.html %}  
+   {% include footer.html %}
+
+   {% include scripts.html %}
 
 </body>
 
