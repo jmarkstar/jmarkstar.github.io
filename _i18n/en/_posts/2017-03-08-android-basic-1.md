@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Installing Android Studio 2.3
-description: This article is the first one of the android basic course. Here we´re going to install and configure quickly Android studio 2.3 to begin coding.
+description: This article is the first one of the android basic course. Here, we´re going to install and configure quickly Android studio 2.3 to begin coding.
 cover: cover.jpg
 date: 2017-03-08 15:07:00
 categories: AndroidBasico
@@ -9,7 +9,7 @@ tags: [Android_basico]
 ---
 ## Installing Android Studio 2.3
 
-If you are completely new on Android and want to take your first step, this will be a good article for you. Here, we will install and configure Android Studio and will create a project to run it on a emulator. The steps to follow are:
+If you are completely new on Android and want to take your first step, this will be a good article for you. Here, I'm going to teach you how to install and configure Android Studio and how to create a project to run it on a emulator. The steps to follow are:
 * Installing Java 8
 * Configuring Java 8
 * Installing Android Studio 2.3
@@ -21,9 +21,9 @@ Let's start.
 
 ### Installing Java 8
 
-**Note: If you already have installed Java 7 or 8, you can avoid this step.**
+**Note: If you already have installed Java 7 or 8, you can skip this step.**
 
-The first step is download and install Java 8. **Why?**, It´s because Java is the choosen language by google to coding android apps. For that reason, We'll to download the JDK. **What is the JDK?**, It´s a bundle of tools to code with the java language, Among them we have the **JVM**(Java Virtual Machine), **Java Standard Libraries** which we could use and more tools.
+First of all we are going to download and install Java 8. **Why?**, It´s because Java is the choosen language by google to coding android apps. For that reason, We have to download the JDK. **What is the JDK?**, It´s a bundle of tools to code with the java language, Among them we have the **JVM**(Java Virtual Machine), **Java Standard Libraries** which we could use and more tools.
 
 Let's go to the [Oracle Official web page](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to download the JDK(Java Development Kit).
 
@@ -208,4 +208,4 @@ I hope this article has been helpful.
 
 Thanks for the visit.
 
-{% include comments.html %} 
+{% include comments.html %}

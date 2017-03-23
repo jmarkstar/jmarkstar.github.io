@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Iniciando con Maven
-description: La serie de artículos para la creación de aplicaciones java con maven se dará inicio con esta entrega que consiste en la explicación de como funciona Maven y sus plugin, su instalación y la creación de 2 proyectos java, una libreria y una aplicacion web.
+description: La serie de artículos para la creación de aplicaciones Java usando Maven se dará inicio con esta entrega que consiste en la explicación de como funciona Maven y sus plugin, su instalación y la creación de dos proyectos Java, una librería y una aplicación web.
 cover: cover.jpg
 date: 2016-11-29 15:07:00
 categories: JavaTools
