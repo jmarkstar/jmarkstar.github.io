@@ -10,7 +10,7 @@ global:
     name: Name
     email: Email
     message: Message
-    intro: This is an example Contact page. If you want to make changes then do so in the contact.html file.
+    intro: If you want to contact me for any questions, freelance projects or something related to professional life, you can contact me by sending me an email hereby.
     more_info:
   tag:
     title: Topics

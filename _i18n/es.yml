@@ -10,7 +10,7 @@ global:
     name: Nombre
     email: Correo Electrónico
     message: Mensaje
-    intro: Este es un ejemplo de una pagina de contacto. Si tu quieres hacer cambios, hazlos en el archivo contact.md.
+    intro: Si quieres ponerte en contacto conmigo por alguna consulta, proyectos freelance o algo relacionado a la vida profesional, puedes contactame mandandome un email por este medio.
     more_info:
   tag:
     title: Temas

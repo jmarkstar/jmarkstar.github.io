@@ -1,7 +1,7 @@
 title: Marco Estrella
 markdown: kramdown
 highlighter: rouge
-exclude: ["LICENSE.txt", "README.md"]
+exclude: ["LICENSE.txt", "README.md", "vendor/bundle/", "Gemfile", "Gemfile.lock"]
 
 future: true
 #baseurl: "http://jmarkstar.com"
@@ -22,7 +22,7 @@ google_analytics: "UA-65998111-1"
 
 languages: ["es", "en"]
 
-exclude_from_localizations: ["assets", "javascript"]
+exclude_from_localizations: ["assets", "javascript", "vendor"]
 
 # Plugins
 gems:
