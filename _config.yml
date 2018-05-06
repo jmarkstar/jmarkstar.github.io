@@ -20,7 +20,7 @@ social:
 
 google_analytics: "UA-65998111-1"
 
-languages: ["es", "en"]
+languages: ["en", "es"]
 
 exclude_from_localizations: ["assets", "javascript", "vendor"]
 

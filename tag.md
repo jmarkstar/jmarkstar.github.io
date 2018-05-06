@@ -44,7 +44,7 @@ Here we generate all the tags.
   {% if post.tags contains tag %}
   <li>
     <h4>
-      {% if site.lang == "es" %}
+      {% if site.lang == "en" %}
         <a class="post-link" href="{{ post.url | prepend: site.baseurl_root }}">{{ post.title }}</a>&nbsp;&nbsp;<small><span class="date">{{ post.date | date_to_string }}</span></small>
       {% else %}
         <a class="post-link" href="{{site.baseurl_root}}/{{site.lang}}{{post.url}}">{{ post.title }}</a>&nbsp;&nbsp;<small><span class="date">{{ post.date | date_to_string }}</span></small>

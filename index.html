@@ -8,7 +8,7 @@ layout: default
     {% for post in site.posts %}
       <li>
         <span class="date">{{ post.date | date: '%B %d, %Y' }}</span>
-        {% if site.lang == "es" %}
+        {% if site.lang == "en" %}
           <h3><a class="post-link" href="{{ post.url | prepend: site.baseurl_root }}">{{ post.title }}</a></h3>
         {% else %}
           <h3><a class="post-link" href="{{site.baseurl_root }}/{{site.lang}}{{post.url}}">{{ post.title }}</a></h3>

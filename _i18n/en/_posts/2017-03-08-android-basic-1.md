@@ -1,31 +1,31 @@
 ---
 layout: default
-title: Installing Android Studio 2.3
+title: Installing Android Studio 3.1.2
 description: This article is the first one of the android basic course. Here, we´re going to install and configure quickly Android studio 2.3 to begin coding.
 cover: cover.jpg
 date: 2017-03-08 15:07:00
 categories: AndroidBasico
 tags: [Android_basico]
 ---
-## Installing Android Studio 2.3
+## Installing Android Studio 3.1.2
 
 If you are completely new on Android and want to take your first step, this will be a good article for you. Here, I'm going to teach you how to install and configure Android Studio and how to create a project to run it on a emulator. The steps to follow are:
-* Installing Java 8
-* Configuring Java 8
-* Installing Android Studio 2.3
+* Installing Java 10
+* Configuring Java 10
+* Installing Android Studio 3.1.2
 * Creating an android project
 * Creating an Android emulator
 * Running of our project on the emulator
 
 Let's start.
 
-### Installing Java 8
+### Installing Java 10
 
-**Note: If you already have installed Java 7 or 8, you can skip this step.**
+**Note: If you already have installed Java 7, 8 or 9, you can skip this step.**
 
-First of all we are going to download and install Java 8. **Why?**, It´s because Java is the choosen language by google to coding android apps. For that reason, We have to download the JDK. **What is the JDK?**, It´s a bundle of tools to code with the java language, Among them we have the **JVM**(Java Virtual Machine), **Java Standard Libraries** which we could use and more tools.
+First of all we are going to download and install Java 10. **Why?**, It´s because Java is the choosen language by google to coding android apps. For that reason, We have to download the JDK. **What is the JDK?**, It´s a bundle of tools to code with the java language, Among them we have the **JVM**(Java Virtual Machine), **Java Standard Libraries** which we could use and more tools.
 
-Let's go to the [Oracle Official web page](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html) to download the JDK(Java Development Kit).
+Let's go to the [Oracle Official web page](http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html) to download the JDK(Java Development Kit).
 
 This section of the page is important for us.
 
@@ -43,12 +43,12 @@ Once you have downloaded the *\*.exe* file. Just execute it and clicking on the 
 
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/install_java_4.png" width="350" title="Java fue Instalado" alt="Java fue Instalado"></p>
 
-### Configuring Java 8
+### Configuring Java 10
 
 In this step, we're going to add a environment variable named **JAVA_HOME** on our operating system and as its value will be the address ofthe folder where we installed java before.
 
 ##### ¿Why should we configure JAVA_HOME?
-If we don't configure JAVA_HOME, we won´t be able to use the tools which java provides us on our operating system. Java has a bundle of tools which we could use them as a command on the command line. Android Studio needs those tools to run some features. Those tools are on C:\Program Files\Java\jdk1.8.0_121**\bin**.
+If we don't configure JAVA_HOME, we won´t be able to use the tools which java provides us on our operating system. Java has a bundle of tools which we could use them as a command on the command line. Android Studio needs those tools to run some features. Those tools are on C:\Program Files\Java\jdk-10.0.1**\bin**.
 
 If we haven't already configured it, our operating system won't recognize the command to see the version of installed  java: **java -version**.
 
@@ -77,7 +77,7 @@ On **Variable name** we are going to set **JAVA_HOME** and on **Variable value**
 
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/config_java_10_en.png" width="350" title="" alt=""></p>
 
-Go to **C:** -> **Program Files** y **Java**. You'll see two folders, choose **jdk1.8.0_121**.
+Go to **C:** -> **Program Files** y **Java**. You'll see two folders, choose **jdk-10.0.1**.
 
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/config_java_6_en.png" width="250" title="" alt=""></p>
 
@@ -89,15 +89,15 @@ You need to change the **Path variable** now. To do that, you should select it a
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/config_java_8_en.png" width="350" title="" alt=""></p>
 
 Go to the end of the value and add **;%JAVA_HOME%\bin**.
-<p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/config_java_9_en.png" width="350" title="" alt=""></p>
+<p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/config_java_9.png" width="350" title="" alt=""></p>
 
 Finally, we are going to test the command **java -version** which windows did not recognized at the beginning.
 
-<p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/config_java_12_en.png" width="350" title="" alt=""></p>
+<p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/config_java_12.png" width="350" title="" alt=""></p>
 
 Windows is recognizing the command now.
 
-### Installing Android Studio 2.3
+### Installing Android Studio 3.1.2
 
 Now that we have installed JDK on our computer, we already could install Android Studio without troubles. To do that, go to the  [Offical page](https://developer.android.com/studio/index.html) and you will see that button **Download android studio**.
 
@@ -107,7 +107,7 @@ Click it, and you will see the license, check it and download it.
 
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/install_android_2.png" width="400" title="" alt=""></p>
 
-Now taht you have the *\*.exe* on your computer, run it and click on the next buttons until arrive to the screen with the **install** button, then wait and go for a coffee.
+Now that you have the *\*.exe* on your computer, run it and click on the next buttons until arrive to the screen with the **install** button, then wait and go for a coffee.
 
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/install_android_3.png" width="400"></p>
 
@@ -121,9 +121,35 @@ If this is the first time you install android studio, choose the last option and
 
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/install_android_6.png" width="400"></p>
 
-We already have Android Studio ready to create our first project.
+Now we can see the screen to configure the **Android SDK** in Android Studio.
+
+**Note: Android Studio is just an editor and for compiling, executing, debbuging and test our apps we need the Android SDK, this contents many tools for android development.**
 
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/install_android_7.png" width="400"></p>
+
+Select the configuration type. I recommend to keep selecting the **Standard** option.
+
+<p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/install_android_8.png" width="400"></p>
+
+Now, select the Android Studio's UI Theme, choose the one you like. I selected **Darcula** in my case :D.
+
+<p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/install_android_9.png" width="400"></p>
+
+In this screen we are going to configure the **Android SDK Path**, if we already have one installed the wizard will detect it automatically, but if It's a new install we could indicate the folter where we want android sdk to install.
+
+<p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/install_android_13.png" width="400"></p>
+
+Click on **Finish** to download, install and configure the selected options before.
+
+<p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/install_android_10.png" width="400"></p>
+
+We already have installed the necessary components for android studio to work properly.
+
+<p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/install_android_11.png" width="400"></p>
+
+We already have Android Studio ready to create our first project.
+
+<p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/install_android_12.png" width="400"></p>
 
 ### Creating an android project
 
