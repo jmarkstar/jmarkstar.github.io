@@ -51,10 +51,10 @@
      <nav class="nav-collapse">
          <ul class="noList">
          		
-		            <li> <a href="http://jmarkstar.com/">Inicio</a></li>
-                    <li> <a href="http://jmarkstar.com/tag">Temas</a></li>
-                    <li> <a href="http://jmarkstar.com/about">Sobre mí</a></li>
-                    <li> <a href="http://jmarkstar.com/contact">Contáctame</a></li>
+		            <li> <a href="http://jmarkstar.com/">Home</a></li>
+                    <li> <a href="http://jmarkstar.com/tag">Topics</a></li>
+                    <li> <a href="http://jmarkstar.com/about">About me</a></li>
+                    <li> <a href="http://jmarkstar.com/contact">Contact me</a></li>
 		        
          </ul>
      </nav>
@@ -68,364 +68,20 @@
 
 					<div class="footer-links">
 			        	<ul class="noList">
-				        	<li><a href="http://jmarkstar.com/starting-with-maven/">
-				                  <img src="http://jmarkstar.com/assets/img/peru.png" alt="Peruvian Flat" title="Español" style="width:30px;height:30px;">
+				        	<li><a href="http://jmarkstar.com/es/starting-with-maven/">
+				                  <img src="http://jmarkstar.com/assets/img/peru.png" alt="Peruvian Flat" title="Spanish" style="width:30px;height:30px;">
 				            	</a>
 				            </li>
 				            <li>
-				            	<a href="http://jmarkstar.com/en/starting-with-maven/">
-				                   <img src="http://jmarkstar.com/assets/img/usa.png" alt="UK Flat" title="Ingles" style="width:30px;height:30px;">
+				            	<a href="http://jmarkstar.com/starting-with-maven/">
+				                   <img src="http://jmarkstar.com/assets/img/usa.png" alt="UK Flat" title="English" style="width:30px;height:30px;">
 				            	</a>
 				            </li>
 			        	</ul>
 					</div>
-          <h2 id="iniciando-con-maven">Iniciando con Maven</h2>
+          <h2 id="starting-with-maven">Starting with Maven</h2>
 
-<p>Ante todo me gustaría recalcar que este artículo como su nombre lo dice, es para personas que recién estan comenzando a usar Maven en sus proyectos y quisiera darles algunos alcances  que les podría ayudar a entender el funcionamiento de esta útil herramienta y un correcto uso.
-Sin mas preámbulos, comencemos a analizar Maven.</p>
-
-<h3 id="que-es-maven">¿Que es Maven?</h3>
-
-<p>Si ya has escuchado un poco de maven antes de que entres a leer este artículo, talvez hayas oído que Maven es una herramienta usada para construir artefactos o binarios desplegables desde el código fuente, una herramienta enfocafa a la compilación, empaquetamiento, testeo y distribución de artefactos. Pues permiteme explicarte que Maven es mas que eso, claro, también hace lo que acabamos de mensionar. En este artículo analizaremos Maven hasta el punto que puedas construir tu propio proyecto y saber que esta ocurriendo por debajo de la mesa.</p>
-
-<p>Bien, en pocas palabras, Maven es una herramienta de administración de proyectos que abarca muchas cosas que nos falicitaría la vida como desarrollador si los sabemos manejar con criterio, entre ellas tenemos:</p>
-
-<ul>
-  <li>Un modelo de objeto de proyecto, mas conocido como archivo POM.</li>
-  <li>Un conjunto de estandares.</li>
-  <li>Un ciclo de vida de proyecto.</li>
-  <li>Un sistema de administración de dependencias y.</li>
-  <li>Lógica para ejecutar Plugins en una fase definida del ciclo de vida del proyecto.</li>
-</ul>
-
-<p>Vamos a ir explicando poco a poco cada caracteristica de maven desde lo más general a lo más especifico, y vamos a comenzar con</p>
-
-<h4 id="la-estructura-de-proyecto-por-defecto">La estructura de proyecto por defecto</h4>
-
-<p>Si ya tenemos experiencia trabajando con java y hemos trabajado con distintos IDEs, de seguro que nos hemos dado cuenta que cada IDE tiene su propia forma de organizar las carpetas de un proyecto y que entre ellas son incompatibles. Es decir, si tienes un proyecto hecho con Netbeans y lo quieres abrir con eclipse, pues te digo que vas a tener problemas porque las estructuras de carpetas son diferentes.</p>
-
-<p>Por convención, Maven tiene su propia forma de organizar las carpetas de un proyecto, y por defecto asume que dicho proyecto tiene dicho orden. Esto ayuda a que un proyecto pueda ser abierto por cualquier IDE que soporte maven, dichas carpetas son:</p>
-
-<p style="text-align:center;"><img src="http://jmarkstar.com/assets/img/starting-with-maven/maven_structure_folder_es.png" width="200" title="Estructura de Proyecto Maven" alt="Estructura de Proyecto Maven" /></p>
-
-<ul>
-  <li><strong>{NombreProyecto}</strong>/src/main/java es donde almacenaremos todos los archivos <strong><code class="highlighter-rouge">*.java</code></strong> que vamos a crear para nuestro proyecto.</li>
-  <li><strong>{NombreProyecto}</strong>/src/main/resources, en este, almacenaremos otros tipos de archivos que no son <strong><code class="highlighter-rouge">*.java</code></strong> y que estan relacionados a nuestro proyecto. Por ejemplo los archivos <strong><code class="highlighter-rouge">*.properties</code></strong> o <strong><code class="highlighter-rouge">*.xml</code></strong>.</li>
-  <li><strong>{NombreProyecto}</strong>/src/test/, este es donde almacenaremos todos los archivos relacionados a las pruebas de nuestro proyecto. Podriamos crear las carpetas <strong>java</strong> y <strong>resources</strong> dentro de ella también y asi tenerlos mas ordenado.</li>
-  <li><strong>{NombreProyecto}</strong>/src/target, y para terminar, este es donde se guardan todos los archivos generados despues de la compilación. Por ejemplo los bytecodes, el ejecutable <strong><code class="highlighter-rouge">*.jar</code></strong>, <strong><code class="highlighter-rouge">*.war</code></strong> o <strong><code class="highlighter-rouge">*.ear</code></strong> dependiendo del caso, además reportes y archivos de documentación.</li>
-</ul>
-
-<p>Entonces, podríamos concluir que Maven usa una estructura estándar de proyecto que nos hace independiente de los IDEs, ya que podemos abrir nuestro proyecto Maven en nuestro IDE favorito sin problemas y ejecutarlo mediante</p>
-
-<h4 id="una-interface-común">Una Interface Común</h4>
-
-<p>Maven provee una serie de comandos estándar, sea cual sea el tipo de proyecto en el que se esté usando. Si navegamos por internet y encontramos algún proyecto creado con maven, por ejemplo en GitHub, podríamos descargarlo y asumir que ese proyecto puede ser ejecutado con el comando <strong>mvn install</strong> sin mucha molestia.</p>
-
-<p>Este es una de las cualidades mas sencillas y poderosas de maven que han hecho que sea tan popular y dificil de reemplazar entre los desarrolladores java además de la</p>
-
-<h4 id="reutilización-universal-de-lógica-de-construcción-mediante-plugins">Reutilización universal de lógica de construcción mediante plugins</h4>
-
-<p>Cuando descargamos Maven desde la <a href="https://maven.apache.org/download.cgi">pagina oficial</a> notaremos que no pesa mucho, es debido a que maven funciona por medio de <strong>plugins</strong>(complementos en español) y cuando maven es recién descargado, solo tiene los plugins para la construcción y reporte de errores en su interior.</p>
-
-<p>Los plugins contienen lógica que le añade nuevos comportamientos a maven para la construcción de un proyecto. Maven tiene plugins para todo, desde la compilación de código java, generación de reportes y despliegues a un servidor de aplicaciónes, por ejemplo <strong>Glassfish</strong> o <strong>Wildfly</strong>. Los plugins son centralmente mantenidos en un repositorio remoto y universalmente compartidos. Esto quiere decir que si actualmente estas usando algun plugin, por ejemplo uno para desplegar los archivos <strong><code class="highlighter-rouge">*.war</code></strong> en <strong>Glassfish</strong> y en el futuro este plugin tiene cambios, mejoras y/o nuevas versiones. Estos cambios pueden ser facilmente actualizados en el archivo <strong>pom.xml</strong> que es el</p>
-
-<h4 id="modelo-conceptual-de-un-proyecto">Modelo conceptual de un Proyecto</h4>
-
-<p>Cuando vamos a trabajar con Maven, no solo vamos a compilar codigo fuente a bytecode. Sino que nosotros desarrollaremos una descripción de un proyecto de software y asignaremos un conjunto unico de coordenadas para cada proyecto. Describiremos los atributos del proyecto como por ejemplo acerca de su licencia, quienes son sus desarrolladores y contribuidores, de que otros proyectos depende y etc. Toda esta información se colocará en el archivo <strong>pom.xml</strong> que es la columna vertebral de un proyecto maven.</p>
-
-<p>Para llevar la teoría y la práctica conjuntamente primero</p>
-
-<h3 id="instalemos-maven-en-una-mac-os-x">Instalemos Maven en una Mac OS X</h3>
-
-<p>Vamos a instalar Maven en 4 sencillos pasos, primero</p>
-
-<h4 id="verificaremos-si-tenemos-instalado-java">Verificaremos si tenemos instalado Java</h4>
-
-<p>Maven 3 requiere Java 7 ó mayor. Podemos verificar que versión de java tenemos instalado con el comando <strong>java -version</strong>.</p>
-
-<p style="text-align:center;"><img src="http://jmarkstar.com/assets/img/starting-with-maven/java_verification.png" width="500" title="Verificación de la instalación de Java" alt="Verificación de la instalación de Java" /></p>
-
-<h4 id="descargaremos-maven">Descargaremos Maven</h4>
-
-<p>Ahora, vamos a descargar Maven desde la <a href="https://maven.apache.org/download.cgi">pagina oficial</a>. Asegurate de que sea la ultima versión.</p>
-
-<p style="text-align:center;"><img src="http://jmarkstar.com/assets/img/starting-with-maven/download_maven.png" width="450" title="Descargando Maven" alt="Descargando Maven" /></p>
-
-<h4 id="configuraremos-maven-en-nuestra-mac-os-x">Configuraremos Maven en nuestra Mac OS X</h4>
-
-<p>Despues de descargar Maven, lo descomprimimos y lo movemos a la dirección de nuestra preferencia. yo lo voy a poner en <strong>/usr/local/{apache-maven-3.3.9}</strong>.</p>
-
-<p>Para poder usar los comandos de maven en nuestra consola, vamos agregar a maven como variable de entorno de la siguiente manera:</p>
-
-<ul>
-  <li>Primero, abrimos el archivo <strong>bash_profile</strong> donde indicaremos la ruta de maven con el comando <strong>sudo nano ~/.bash_profile</strong>.</li>
-  <li>
-    <p>Agregamos la ruta de la carpeta <strong>bin</strong> de maven en dicho archivo.</p>
-
-    <p style="text-align:center;"><img src="http://jmarkstar.com/assets/img/starting-with-maven/maven_environment_variable.png" width="450" title="Configurando variable de entorno" alt="Configurando variable de entorno" /></p>
-  </li>
-  <li>Presionamos <strong>Ctl+X</strong> para salir, <strong>Y</strong> para guardar los cambios y <strong>enter</strong> para terminar.</li>
-  <li>Finalmente, ejecutamos los cambios en el archivo <strong>bash_profile</strong> con el comando <strong>source ~/.bash_profile</strong>.</li>
-</ul>
-
-<h4 id="verificaremos-nuestra-instalación-maven">Verificaremos nuestra instalación Maven</h4>
-
-<p>Para comprobar que maven haya sido instalado correctamente ejecutamos el comando <strong>mvn -v</strong>.</p>
-
-<p style="text-align:center;"><img src="http://jmarkstar.com/assets/img/starting-with-maven/maven_verification.png" width="450" title="Verificación de instalación" alt="Verificación de instalación" /></p>
-
-<p>Ahora ya estamos listos para crear nuestro primer proyecto maven y continuar explicando algunos conceptos mas de maven, vamos a</p>
-
-<h3 id="crear-un-proyecto-java-simple">Crear un proyecto java simple</h3>
-
-<p>Bien, para generar nuevos proyectos maven vamos a usar un plugin llamado <strong>archetype</strong>, este plugin nos permite crear un proyecto Maven desde una plantilla existente. En este caso, la plantilla para crear una aplicación java se llama <strong>maven-archetype-quickstart</strong>.</p>
-
-<p>Ejecutaremos el comando <strong>mvn archetype:generate</strong> para darle vida al proyecto, antes se usaba el comando <strong>mvn archetype:create</strong> pero ahora esta <strong>deprecado</strong>.</p>
-
-<p>Síntaxis:</p>
-
-<div class="highlighter-rouge"><pre class="highlight"><code>mvn archetype:generate
--DgroupId={el Id de grupo de la compañia}
--DartifactId={el Id de artefacto de nuestro proyecto}
--Dpackage={paquete de nuestro proyecto}
--DarchetypeArtifactId={plantilla de proyecto}
--Dversion={versión de inicio de nuestro proyecto}
-</code></pre>
-</div>
-<p>Como se observa, el plugin <strong>archetype</strong> solicita unos parametros que vamos a describir ahora.</p>
-
-<ul>
-  <li><strong>groupId</strong> es el identificador de un equipo, compañia, organización. La convención para este identificador es el nombre de dominio invertido. Por ejemplo, mi dominio es <strong>jmarkstar.com</strong>, entonces el groupId de mi proyecto sería <strong>com.jmarkstar</strong>.</li>
-  <li><strong>artifactId</strong> es el identificador que representa un proyecto bajo tu <strong>groupId</strong>. Normalmente es el nombre del proyecto que debe ser único dentro del dominio del <strong>groupId</strong>, por ejemplo <strong>myproject</strong>.</li>
-  <li><strong>version</strong> es el identificador de una liberación especifica del proyecto, en caso de que aún el proyecto este en desarrollo podríamos marcar la versión como un <strong>SNAPSHOT</strong>, por ejemplo 1.0.-SNAPSHOT.</li>
-</ul>
-
-<p>Estos datos insertados en el comando figuraran en el archivo <strong>pom.xml</strong>.</p>
-
-<p>Finalmente el codigo a ejecutar sería:</p>
-
-<p><strong>mvn archetype:generate -DgroupId=com.jmarkstar -DartifactId=myproject -Dpackage=com.jmarkstar.myproject -DarchetypeArtifactId=maven-archetype-quickstart -Dversion=1.0.SNAPSHOT</strong></p>
-
-<p style="text-align:center;"><img src="http://jmarkstar.com/assets/img/starting-with-maven/maven_generate_project.png" width="750" title="Generación de un Proyecto" alt="Generación de un Proyecto" /></p>
-
-<p>Esta es la jerarquía de carpetas y archivos que el plugin <strong>archetype</strong> ha generado.</p>
-
-<p style="text-align:center;"><img src="http://jmarkstar.com/assets/img/starting-with-maven/maven_simple_project.png" width="300" title="Nuevo Proyecto" alt="Nuevo Proyecto" /></p>
-
-<p>Como ya hemos revisado la estructura estándar de un proyecto de maven, vamos a pasar defrente a ver el archivo <strong>pom.xml</strong> que <strong>archetype</strong> ha generado.</p>
-
-<div class="language-xml highlighter-rouge"><pre class="highlight"><code><span class="nt">&lt;project</span> <span class="na">xmlns=</span><span class="s">"http://maven.apache.org/POM/4.0.0"</span>
-  <span class="na">xmlns:xsi=</span><span class="s">"http://www.w3.org/2001/XMLSchema-instance"</span>
-  <span class="na">xsi:schemaLocation=</span><span class="s">"http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd"</span><span class="nt">&gt;</span>
-  <span class="nt">&lt;modelVersion&gt;</span>4.0.0<span class="nt">&lt;/modelVersion&gt;</span>
-
-  <span class="c">&lt;!-- Identificador de la compañia --&gt;</span>
-  <span class="nt">&lt;groupId&gt;</span>com.jmarkstar<span class="nt">&lt;/groupId&gt;</span>
-
-  <span class="c">&lt;!-- Identificador del proyecto --&gt;</span>
-  <span class="nt">&lt;artifactId&gt;</span>myproject<span class="nt">&lt;/artifactId&gt;</span>
-
-  <span class="c">&lt;!-- Tipo de proyecto: jar, war  --&gt;</span>
-  <span class="nt">&lt;packaging&gt;</span>jar<span class="nt">&lt;/packaging&gt;</span>
-
-  <span class="c">&lt;!-- Versión del proyecto --&gt;</span>
-  <span class="nt">&lt;version&gt;</span>1.0-SNAPSHOT<span class="nt">&lt;/version&gt;</span>
-
-  <span class="c">&lt;!-- Nombre del proyecto --&gt;</span>
-  <span class="nt">&lt;name&gt;</span>MyProject<span class="nt">&lt;/name&gt;</span>
-
-  <span class="c">&lt;!-- URL donde se encuentra el proyecto publicado --&gt;</span>
-  <span class="nt">&lt;url&gt;</span>http://jmarkstar.com<span class="nt">&lt;/url&gt;</span>
-
-  <span class="c">&lt;!-- Contiene la lista de librerías que nuestro proyecto necesita --&gt;</span>
-  <span class="nt">&lt;dependencies&gt;</span>
-
-    <span class="c">&lt;!-- Una librería --&gt;</span>
-    <span class="nt">&lt;dependency&gt;</span>
-      <span class="nt">&lt;groupId&gt;</span>junit<span class="nt">&lt;/groupId&gt;</span>
-      <span class="nt">&lt;artifactId&gt;</span>junit<span class="nt">&lt;/artifactId&gt;</span>
-      <span class="nt">&lt;version&gt;</span>3.8.1<span class="nt">&lt;/version&gt;</span>
-      <span class="nt">&lt;scope&gt;</span>test<span class="nt">&lt;/scope&gt;</span>
-    <span class="nt">&lt;/dependency&gt;</span>
-
-  <span class="nt">&lt;/dependencies&gt;</span>
-
-<span class="nt">&lt;/project&gt;</span>
-</code></pre>
-</div>
-<p>Con esta pequeña introducción a <strong>pom.xml</strong> donde hemos descrito algunos de sus atributos vamos a</p>
-
-<h4 id="modificar-el-proyecto-generado">Modificar el proyecto generado</h4>
-
-<p><strong>archetype</strong> además ha generado nuestros paquetes y una clase <strong>App.java</strong> en la carpera <strong>src/java</strong>, como queremos probar las cualidades de maven vamos a modificar esta clase y añadir algunas clases nuevas para nuestro ejemplo en la carpeta <strong>src/main/java/com/jmarkstar/myproject</strong>. Vamos a comenzar creando clase modelo <strong>Cliente</strong>.</p>
-
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">jmarkstar</span><span class="o">.</span><span class="na">myproject</span><span class="o">;</span>
-
-<span class="cm">/** Model Class Client
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">Client</span> <span class="o">{</span>
-
-	<span class="kd">private</span> <span class="n">Integer</span> <span class="n">id</span><span class="o">;</span>
-	<span class="kd">private</span> <span class="n">String</span> <span class="n">name</span><span class="o">;</span>
-	<span class="kd">private</span> <span class="n">String</span> <span class="n">lastName</span><span class="o">;</span>
-	<span class="kd">private</span> <span class="n">String</span> <span class="n">address</span><span class="o">;</span>
-	<span class="kd">private</span> <span class="n">Integer</span> <span class="n">age</span><span class="o">;</span>
-
-    <span class="kd">public</span> <span class="nf">Client</span><span class="o">(</span><span class="n">Integer</span> <span class="n">id</span><span class="o">,</span> <span class="n">String</span> <span class="n">name</span><span class="o">,</span> <span class="n">String</span> <span class="n">lastName</span><span class="o">,</span>
-    	<span class="n">String</span> <span class="n">address</span><span class="o">,</span> <span class="n">Integer</span> <span class="n">age</span><span class="o">){</span>
-    	<span class="k">this</span><span class="o">.</span><span class="na">id</span> <span class="o">=</span> <span class="n">id</span><span class="o">;</span>
-    	<span class="k">this</span><span class="o">.</span><span class="na">name</span><span class="o">=</span> <span class="n">name</span><span class="o">;</span>
-    	<span class="k">this</span><span class="o">.</span><span class="na">lastName</span> <span class="o">=</span> <span class="n">lastName</span><span class="o">;</span>
-    	<span class="k">this</span><span class="o">.</span><span class="na">address</span> <span class="o">=</span> <span class="n">address</span><span class="o">;</span>
-    	<span class="k">this</span><span class="o">.</span><span class="na">age</span> <span class="o">=</span> <span class="n">age</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">getId</span><span class="o">(){</span>
-    	<span class="k">return</span> <span class="n">id</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getName</span><span class="o">(){</span>
-    	<span class="k">return</span> <span class="n">name</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getLastName</span><span class="o">(){</span>
-    	<span class="k">return</span> <span class="n">lastName</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="n">String</span> <span class="nf">getAddress</span><span class="o">(){</span>
-    	<span class="k">return</span> <span class="n">address</span><span class="o">;</span>
-    <span class="o">}</span>
-
-    <span class="kd">public</span> <span class="n">Integer</span> <span class="nf">getAge</span><span class="o">(){</span>
-    	<span class="k">return</span> <span class="n">age</span><span class="o">;</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
-</div>
-<p>Luego, vamos a crear nuestra clase <strong>ClientService.java</strong>, este nos proporcionará una serie de funcionalidades para el modelo <strong>Cliente</strong>.</p>
-
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">jmarkstar</span><span class="o">.</span><span class="na">myproject</span><span class="o">;</span>
-
-<span class="kn">import</span> <span class="nn">java.util.List</span><span class="o">;</span>
-<span class="kn">import</span> <span class="nn">java.util.ArrayList</span><span class="o">;</span>
-
-<span class="cm">/** Service class for Client Model.
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">ClientService</span> <span class="o">{</span>
-
-	<span class="kd">private</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Client</span><span class="o">&gt;</span> <span class="n">clientList</span><span class="o">;</span>
-
-	<span class="kd">public</span> <span class="nf">ClientService</span><span class="o">(){</span>
-		<span class="n">clientList</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Client</span><span class="o">&gt;();</span>
-	<span class="o">}</span>
-
-	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">addNewClient</span><span class="o">(</span><span class="n">Client</span> <span class="n">client</span><span class="o">){</span>
-		<span class="n">clientList</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">client</span><span class="o">);</span>
-	<span class="o">}</span>
-
-	<span class="kd">public</span> <span class="kt">void</span> <span class="nf">deleteClient</span><span class="o">(</span><span class="n">Client</span> <span class="n">client</span><span class="o">){</span>
-		<span class="n">clientList</span><span class="o">.</span><span class="na">remove</span><span class="o">(</span><span class="n">client</span><span class="o">);</span>
-	<span class="o">}</span>
-
-	<span class="kd">public</span> <span class="n">List</span><span class="o">&lt;</span><span class="n">Client</span><span class="o">&gt;</span> <span class="nf">getAll</span><span class="o">(){</span>
-		<span class="k">return</span> <span class="n">clientList</span><span class="o">;</span>
-	<span class="o">}</span>
-
-	<span class="kd">public</span> <span class="n">Integer</span> <span class="nf">count</span><span class="o">(){</span>
-		<span class="k">return</span> <span class="n">clientList</span><span class="o">.</span><span class="na">size</span><span class="o">();</span>
-	<span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
-</div>
-<p>Por ultimo, modificamos la clase <strong>App.java</strong>.</p>
-
-<div class="language-java highlighter-rouge"><pre class="highlight"><code><span class="kn">package</span> <span class="n">com</span><span class="o">.</span><span class="na">jmarkstar</span><span class="o">.</span><span class="na">myproject</span><span class="o">;</span>
-
-<span class="cm">/**
- * Main Class
- */</span>
-<span class="kd">public</span> <span class="kd">class</span> <span class="nc">App</span>
-<span class="o">{</span>
-    <span class="kd">public</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">main</span><span class="o">(</span> <span class="n">String</span><span class="o">[]</span> <span class="n">args</span> <span class="o">)</span>
-    <span class="o">{</span>
-    	<span class="n">ClientService</span> <span class="n">clientService</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ClientService</span><span class="o">();</span>
-
-        <span class="n">Client</span> <span class="n">client1</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Client</span><span class="o">(</span><span class="mi">1</span><span class="o">,</span> <span class="s">"Juana"</span><span class="o">,</span> <span class="s">"Perez"</span><span class="o">,</span> <span class="s">"Lince, Lima, Peru"</span><span class="o">,</span> <span class="mi">26</span><span class="o">);</span>
-
-        <span class="n">Client</span> <span class="n">client2</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Client</span><span class="o">(</span><span class="mi">2</span><span class="o">,</span> <span class="s">"Fernanda"</span><span class="o">,</span> <span class="s">"Castro"</span><span class="o">,</span> <span class="s">"Magdalena, Lima, Peru"</span><span class="o">,</span> <span class="mi">24</span><span class="o">);</span>
-
-        <span class="n">Client</span> <span class="n">client3</span> <span class="o">=</span> <span class="k">new</span> <span class="n">Client</span><span class="o">(</span><span class="mi">3</span><span class="o">,</span> <span class="s">"Jhon"</span><span class="o">,</span> <span class="s">"Rojas"</span><span class="o">,</span> <span class="s">"La victoria, Lima, Peru"</span><span class="o">,</span> <span class="mi">36</span><span class="o">);</span>
-
-        <span class="n">clientService</span><span class="o">.</span><span class="na">addNewClient</span><span class="o">(</span><span class="n">client1</span><span class="o">);</span>
-        <span class="n">clientService</span><span class="o">.</span><span class="na">addNewClient</span><span class="o">(</span><span class="n">client2</span><span class="o">);</span>
-        <span class="n">clientService</span><span class="o">.</span><span class="na">addNewClient</span><span class="o">(</span><span class="n">client3</span><span class="o">);</span>
-
-        <span class="n">System</span><span class="o">.</span><span class="na">out</span><span class="o">.</span><span class="na">println</span><span class="o">(</span><span class="s">"Cantidad de clientes: "</span><span class="o">+</span><span class="n">clientService</span><span class="o">.</span><span class="na">count</span><span class="o">());</span>
-    <span class="o">}</span>
-<span class="o">}</span>
-</code></pre>
-</div>
-
-<p>Ahora que hemos modificado y agregado mas classes a nuestro proyecto vamos a</p>
-
-<h4 id="generar-el-artefacto">Generar el artefacto</h4>
-
-<p>Para generar el artefacto vamos a usar el <strong>command line</strong>, primero accedemos a la carpeta <strong>myproject</strong> y ejecutamos el comando <strong>mvn install</strong>.</p>
-
-<p style="text-align:center;"><img src="http://jmarkstar.com/assets/img/starting-with-maven/maven_install.png" width="700" title="Generación del artefacto" alt="Generación del artefacto" /></p>
-
-<p>Ahora dirijámonos a la carpeta del proyecto y observaremos una carpeta nueva llamada <strong>target</strong>, como bien se explicó, en esta carpeta almacena todos los archivos generados en la construcción del artefacto, desde <strong>los bytecode</strong>, los <strong>logs de pruebas</strong> y el archivo <strong><code class="highlighter-rouge">*.jar</code></strong> ejecutable.</p>
-
-<p style="text-align:center;"><img src="http://jmarkstar.com/assets/img/starting-with-maven/maven_target_folder.png" width="350" title="Carpeta target" alt="Carpeta target" /></p>
-
-<p>En la carpera <strong>target</strong> se encuentra nuestro artefacto con el siguiente formato <strong>{artefactId}-{version}.jar</strong> que ahora vamos a probar.</p>
-
-<h4 id="probar-el-artefacto">Probar el artefacto</h4>
-
-<p>Ejecutemos el comando</p>
-
-<p><strong>java -cp target/myproject-1.0.SNAPSHOT.jar com.jmarkstar.myproject.App</strong></p>
-
-<p style="text-align:center;"><img src="http://jmarkstar.com/assets/img/starting-with-maven/maven_execute_artifact.png" width="750" /></p>
-
-<p>El resultado es <strong>3</strong> ya que habiamos agregado justamente 3 clientes a la lista.</p>
-
-<p>Ya que hemos usado un comando muy importante de maven que fue el <strong>mvn install</strong>, vamos a profundizar este y muchos mas comandos relacionados con</p>
-
-<h3 id="el-ciclo-de-vida-de-construccíon">El ciclo de vida de construccíon</h3>
-
-<p>Un ciclo de vida de contrucción de un proyecto maven es una pila de fases o etapas que definen el orden de una ejecución. Cada fase agrupa un conjunto de objetivos proveídas por los plugins. Un plugin agrupa un conjunto de objetivos que añade funcionalidad a Maven y un objetivo es una tarea específica que puede estar en cualquiera de las fases del ciclo de vida.</p>
-
-<p style="text-align:center;"><img src="http://jmarkstar.com/assets/img/starting-with-maven/maven_lifecycle_es.png" width="400" title="Ciclo de vida" /></p>
-
-<p>Maven trae consigo 3 ciclos de vida estandar: <strong>clean</strong>, <strong>default</strong> y <strong>site</strong>. Cada ciclo de vida tiene definida sus propias fases.</p>
-
-<p>Hay que tener en claro que nosotros no podemos ejecutar el ciclo de vida completo con su nombre. Por ejemplo <strong>mvn default</strong> no funcionaría, Tiene que ser por el nombre de la fase, por ejemplo <strong>mvn install</strong>. Maven buscará el ciclo de vida a la cual la fase pertenece y se ejecutará fase por fase de acuerdo al orden del ciclo de vida hasta llegar a pase ejecutada.</p>
-
-<h4 id="ciclo-de-vida-clean">Ciclo de vida Clean</h4>
-
-<h4 id="ciclo-de-vida-default">Ciclo de vida Default</h4>
-
-<h4 id="ciclo-de-vida-site">Ciclo de vida Site</h4>
-
-<h3 id="los-plugins-y-sus-objetivos">Los plugins y sus objetivos</h3>
-
-<h3 id="la-administración-de-dependencias">La administración de dependencias</h3>
-
-<h3 id="referencias">Referencias</h3>
-
-<p style="text-align:center;">
-<a href="http://books.sonatype.com/mvnex-book/reference/public-book.html" target="_blank">
-<img src="http://jmarkstar.com/assets/img/starting-with-maven/maven_by_example_book.jpg" width="150" />
-</a>
-&nbsp;&nbsp;
-<a href="https://www.packtpub.com/application-development/mastering-apache-maven-3" target="_blank">
-<img src="http://jmarkstar.com/assets/img/starting-with-maven/mastering_maven_3.jpg" width="150" /></a>
-&nbsp;&nbsp;
-<a href="http://books.sonatype.com/mvnref-book/reference/index.html" target="_blank">
-<img src="http://jmarkstar.com/assets/img/starting-with-maven/maven_the_complete_reference.jpg" width="150" />
-</a>
-</p>
+<p>In Construction xP…</p>
 
 <script src="https://apis.google.com/js/plusone.js"></script>
 
@@ -437,7 +93,7 @@ Sin mas preámbulos, comencemos a analizar Maven.</p>
 
    <div class="footer">
    <div class="container">
-      <p class="copy">Marco Estrella Cardenas &copy; 2018 &bull; Todos los derechos reservados.</p>
+      <p class="copy">Marco Estrella Cardenas &copy; 2018 &bull; All rights reserved.</p>
 
       <div class="footer-links"> 
          <ul class="noList"> 
