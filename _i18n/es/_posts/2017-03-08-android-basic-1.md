@@ -214,39 +214,59 @@ Primero, hacemos click en el botón **AVD Manager**; que es el botón donde la f
 Continuando con los pasos, hacemos click en el botón **Create Virtual Device**.
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/creating_emulator_2.png" width="400"></p>
 
-Seleccionamos un modelo de Smarthphone y clickeamos en **Next**. En mi caso seleccioné al **Galaxy Nexus**.
+Seleccionamos un modelo de Smartphone y hacemos clic en **Next**. En mi caso seleccioné al **Galaxy Nexus**.
 
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/creating_emulator_3.png" width="400"></p>
 
-Ahora vamos a seleccionar la versión de Android que queremos para nuestro emulador. Cuando Android Studio es nuevo solo tendremos descargado la última versión, en mi caso está disponible a usar el **Nougat - V7.0**. Lo selecionamos y clickeamos en **Next**.
+Ahora vamos a seleccionar la versión de Android que queremos para nuestro emulador. Si la instalación es nueva, tenemos que descargar uno de los emuladores, puedes escoger el que te guste, en mi caso, el **Nougat - V7.1.1**. Hacemos clic en **Download**
 
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/creating_emulator_4.png" width="400"></p>
 
-En este último paso, podemos agregar y quitar características al emulador, pero por el momento no haremos ningún cambio y clickearemos en **Finish**.
+Aceptamos la licencia y hacemos clic en **Next**.
 
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/creating_emulator_5.png" width="400"></p>
 
-Ahora, visuarelizaremos nuestro primer emulador creado en una lista de emuladores. Nos dirigimos a ella y clickeamos en el botón **Play**.
+Esperamos que descarge, esto puede tarde un buen tiempo y le damos clic en **Finish**.
 
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/creating_emulator_6.png" width="400"></p>
 
-Esperamos un momento y veremos a nuestro primero emulador corriendo en nuestra computadora :).
+En este último paso, podemos agregar y quitar características al emulador, pero por el momento no haremos ningún cambio y hacemos clic en **Finish**.
 
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/creating_emulator_7.png" width="400"></p>
 
+Ahora, podemos ver nuestro primer emulador creado en una lista de emuladores. Nos dirigimos a ella y hacemos clic en el botón **Play**.
+
+<p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/creating_emulator_8.png" width="400"></p>
+
+Esperamos un momento y veremos a nuestro primero emulador corriendo en nuestra computadora :).
+
+<p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/creating_emulator_9.png" width="400"></p>
+
 ### Ejecutar el proyecto en un emulador
 
-Ahora que ya tenemos nuestro proyecto creado y nuestro emulador funcionando, vamos a correr nuestro proyecto en el emulador clickeando en el botón **Run**.
+Ahora que ya tenemos nuestro proyecto creado y nuestro emulador funcionando, vamos a correr nuestro proyecto en el emulador haciendo clic en el botón **Run**.
 
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/running_app_1.png" width="400"></p>
 
-Como ya tenemos un emulador funcionando, nos aparecerá este emulador en la lista de dispositivos conectados, lo selecionaremos y clickearemos en **OK**:
+Como ya tenemos un emulador funcionando, este aparecerá en la lista de dispositivos conectados, lo seleccionamos y hacemos clic en **OK**:
 
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/running_app_2.png" width="400"></p>
 
-Esperamos un momento y nuestro primero proyecto se estará visualizando en el emulador.
+Si es tu primera instalación probablemente te salga esta ventana.
 
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/running_app_3.png" width="400"></p>
+
+Es la ventana para instalar el [Instant Run](https://medium.com/google-developers/instant-run-how-does-it-work-294a1633367f).
+
+**Nota: El Instant Run es una característica de Android Studio que reduce el tiempo de construcción y despliegue del APK en nuestro emulador.**
+
+Esperamos que descargue las herramientas y hacemos clic en **Finish**
+
+<p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/running_app_4.png" width="400"></p>
+
+Esperamos un momento y nuestro primero proyecto se estará visualizando en el emulador.
+
+<p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/running_app_5.png" width="400"></p>
 
 Espero que este artículo te haya sido de ayuda.
 
