@@ -161,9 +161,11 @@ Set the **Application Name**, **Company Domain** and change the auto generated p
 
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/creating_project_2.png" width="500"></p>
 
-Choose which devices you want to run your app, choose the first one for our first app. Click on **Help me choose** to select the android version, choose **6.0 Marshmelow** for the moment. Click on **OK** and click on **Next** to continue.
+This step is for choosing the kind of devices we want our app to run, Smartphones and tablets is selected by default. After that, we must select the minimum version of android which we want our app to run. Click on **Help me choose** for that.
 
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/creating_project_3.png" width="500"></p>
+
+We can see the list of android's versions, we should select one and then click on **OK**.
 
 <p style="text-align:center;"><img src="{{ site.baseurl_root }}/assets/img/android-basic-1/creating_project_4.png" width="500"></p>
 
