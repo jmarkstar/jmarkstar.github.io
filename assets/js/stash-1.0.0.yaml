@@ -1,0 +1,2580 @@
+openapi: 3.0.0
+info:
+  title: Stash API
+  description: |
+    API for managing warehouse's inventories.
+
+    __<u>User roles</u>__ \
+    __Root__: Use who has complete access to the app info. \
+    __User Business Creator or only UBC__: User who registered on the App and has complete access to all features of the app and can see all kind of available reports.\
+    __Administrator__: User who can manage products, brands, categories, units, entries and exits of products and see some reports.\
+    __Operators__: User who work in the warehouse and can create new entries or exits of products.
+  termsOfService: http://swagger.io/terms/
+  contact:
+    email: jmarkstar.1991@gmail.com
+  version: 1.0.0
+externalDocs:
+  description: Find out more about Swagger
+  url: http://stash.io
+servers:
+- url: http://45.79.3.61/v1
+  description: Production server
+tags:
+- name: Authentication
+  description: Authentication services.
+- name: User
+  description: User services.
+- name: Entries and Exits
+  description: Services of Entries and Exits' Products.
+- name: Company
+  description: Company services.
+- name: Warehouse
+  description: Warehouse services.
+- name: Brand
+  description: Brand services.
+- name: Unit
+  description: Unit services.
+- name: Category
+  description: Category services.
+- name: Product
+  description: Product services.
+- name: Provider
+  description: Provider services.
+paths:
+  /register:
+    post:
+      tags:
+      - Authentication
+      summary: Creates a User business creator.
+      description: Creates a User business creator which will manage all information
+        in the system created by him, his administrators and operators.
+      operationId: register
+      requestBody:
+        $ref: '#/components/requestBodies/RegisterRequest'
+      responses:
+        "200":
+          description: User Logged in response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+        "400":
+          description: Some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /login:
+    post:
+      tags:
+      - Authentication
+      summary: Login for all users.
+      requestBody:
+        $ref: '#/components/requestBodies/LoginRequest'
+      responses:
+        "200":
+          description: User Logged in response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/inline_response_200'
+        "401":
+          description: Unauthorized, usually happends when the user exists but password
+            is wrong.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: Username not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+  /logout:
+    get:
+      tags:
+      - Authentication
+      summary: Logout for all users.
+      responses:
+        "204":
+          description: Not content
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "401":
+          description: Unauthorized
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+  /brands:
+    get:
+      tags:
+      - Brand
+      summary: Gets all brands relate to the companies of the user business creator.
+      description: |
+        This endpoint could be used by __all user roles__.
+      responses:
+        "200":
+          description: List of brands
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Brand'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    post:
+      tags:
+      - Brand
+      summary: Creates a new Brand.
+      description: |
+        This endpoint could be used only by __adminstrators__, __the user business creators__ and __root__.
+      requestBody:
+        $ref: '#/components/requestBodies/OnlyNameRequest'
+      responses:
+        "201":
+          description: Brand entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+  /brands/{brandId}:
+    get:
+      tags:
+      - Brand
+      summary: Gets Brand according ID.
+      description: |
+        This endpoint could be used by __all user roles__.
+      parameters:
+      - name: brandId
+        in: path
+        description: Brand ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Brand entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    put:
+      tags:
+      - Brand
+      summary: Updates Brand according ID.
+      description: |
+        This endpoint could be used only by __adminstrators__, __the user business creators__ and __root__.
+      parameters:
+      - name: brandId
+        in: path
+        description: Brand ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        $ref: '#/components/requestBodies/OnlyNameRequest'
+      responses:
+        "200":
+          description: Brand entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Brand'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    delete:
+      tags:
+      - Brand
+      summary: Deletes Brand according ID.
+      description: |
+        This endpoint could be used by __all user roles__.
+      parameters:
+      - name: brandId
+        in: path
+        description: Brand ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "204":
+          description: Not Content
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+  /units:
+    get:
+      tags:
+      - Unit
+      summary: Gets all units relate to the companies of the user business creator.
+      description: |
+        This endpoint could be used by __all user roles__.
+      responses:
+        "200":
+          description: List of units
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Unit'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    post:
+      tags:
+      - Unit
+      summary: Creates a new Unit.
+      description: |
+        This endpoint could be used only by __adminstrators__, __the user business creators__ and __root__.
+      requestBody:
+        $ref: '#/components/requestBodies/OnlyNameRequest'
+      responses:
+        "201":
+          description: Unit entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unit'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+  /units/{unitId}:
+    get:
+      tags:
+      - Unit
+      summary: Gets Unit according ID.
+      description: |
+        This endpoint could be used by __all user roles__.
+      parameters:
+      - name: unitId
+        in: path
+        description: Unit ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Unit entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unit'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    put:
+      tags:
+      - Unit
+      summary: Updates Unit according ID.
+      description: |
+        This endpoint could be used only by __adminstrators__, __the user business creators__ and __root__.
+      parameters:
+      - name: unitId
+        in: path
+        description: Unit ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        $ref: '#/components/requestBodies/OnlyNameRequest'
+      responses:
+        "200":
+          description: Unit entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Unit'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    delete:
+      tags:
+      - Unit
+      summary: Deletes Unit according ID.
+      description: |
+        This endpoint could be used only by __adminstrators__, __the user business creators__ and __root__.
+      parameters:
+      - name: unitId
+        in: path
+        description: Unit ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "204":
+          description: Succeed
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+  /categories:
+    get:
+      tags:
+      - Category
+      summary: Gets all categories relate to the companies of the user business creator.
+      description: |
+        This endpoint could be used by __all user roles__.
+      responses:
+        "200":
+          description: List of categories
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Category'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    post:
+      tags:
+      - Category
+      summary: Creates a new Category.
+      description: |
+        This endpoint could be used only by __adminstrators__, __the user business creators__ and __root__.
+      requestBody:
+        $ref: '#/components/requestBodies/OnlyNameRequest'
+      responses:
+        "201":
+          description: Category entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+  /categories/{categoryId}:
+    get:
+      tags:
+      - Category
+      summary: Gets Category according ID.
+      description: |
+        This endpoint could be used by __all user roles__.
+      parameters:
+      - name: categoryId
+        in: path
+        description: Category ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Category entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    put:
+      tags:
+      - Category
+      summary: Updates Category according ID.
+      description: |
+        This endpoint could be used only by __adminstrators__, __the user business creators__ and __root__.
+      parameters:
+      - name: categoryId
+        in: path
+        description: Category ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        $ref: '#/components/requestBodies/OnlyNameRequest'
+      responses:
+        "200":
+          description: Category entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Category'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    delete:
+      tags:
+      - Category
+      summary: Deletes Category according ID.
+      description: |
+        This endpoint could be used only by __adminstrators__, __the user business creators__ and __root__.
+      parameters:
+      - name: categoryId
+        in: path
+        description: Category ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "204":
+          description: Not Content
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+  /products:
+    get:
+      tags:
+      - Product
+      summary: Gets all products relate to the companies of the user business creator.
+      description: |
+        This endpoint could be used by __all user roles__.
+      responses:
+        "200":
+          description: List of products
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Product'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    post:
+      tags:
+      - Product
+      summary: Creates a new Product.
+      description: |
+        This endpoint could be used only by __adminstrators__, __the user business creators__ and __root__.
+      requestBody:
+        $ref: '#/components/requestBodies/ProductRequest'
+      responses:
+        "201":
+          description: Product entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+  /products/{productId}:
+    get:
+      tags:
+      - Product
+      summary: Gets Product according ID.
+      description: |
+        This endpoint could be used by __all user roles__.
+      parameters:
+      - name: productId
+        in: path
+        description: Product ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Product entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    put:
+      tags:
+      - Product
+      summary: Updates Product according ID.
+      description: |
+        This endpoint could be used only by __adminstrators__, __the user business creators__ and __root__.
+      parameters:
+      - name: productId
+        in: path
+        description: Product ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        $ref: '#/components/requestBodies/ProductRequest'
+      responses:
+        "200":
+          description: Product entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Product'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    delete:
+      tags:
+      - Product
+      summary: Deletes Product according ID.
+      description: |
+        This endpoint could be used only by __adminstrators__, __the user business creators__ and __root__.
+      parameters:
+      - name: productId
+        in: path
+        description: Product ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "204":
+          description: Not Content
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+  /companies:
+    get:
+      tags:
+      - Company
+      summary: Gets all companies relate to the the user business creator.
+      description: |
+        This endpoint could be used by __all user roles__.
+      responses:
+        "200":
+          description: List of companies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Company'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    post:
+      tags:
+      - Company
+      summary: Creates a new Company.
+      description: |
+        This endpoint could be used only by __adminstrators__, __the user business creators__ and __root__.
+      requestBody:
+        $ref: '#/components/requestBodies/CompanyRequest'
+      responses:
+        "201":
+          description: Company entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+  /companies/{companyId}:
+    get:
+      tags:
+      - Company
+      summary: Gets Company according ID.
+      description: |
+        This endpoint could be used by __all user roles__.
+      parameters:
+      - name: companyId
+        in: path
+        description: Company ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Company entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    put:
+      tags:
+      - Company
+      summary: Updates Company according ID.
+      description: |
+        This endpoint could be used only by __adminstrators__, __the user business creators__ and __root__.
+      parameters:
+      - name: companyId
+        in: path
+        description: Company ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        $ref: '#/components/requestBodies/CompanyRequest'
+      responses:
+        "200":
+          description: Company entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Company'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    delete:
+      tags:
+      - Company
+      summary: Deletes Company according ID.
+      description: |
+        This endpoint could be used only by __adminstrators__, __the user business creators__ and __root__.
+      parameters:
+      - name: companyId
+        in: path
+        description: Company ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "204":
+          description: Not Content
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+  /providers:
+    get:
+      tags:
+      - Provider
+      summary: Gets all providers relate to the the user business creator.
+      description: |
+        This endpoint could be used by __all user roles__.
+      responses:
+        "200":
+          description: List of providers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Provider'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    post:
+      tags:
+      - Provider
+      summary: Creates a new Provider.
+      description: |
+        This endpoint could be used only by __adminstrators__, __the user business creators__ and __root__.
+      requestBody:
+        $ref: '#/components/requestBodies/ProviderRequest'
+      responses:
+        "201":
+          description: Provider entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Provider'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+  /providers/{providerId}:
+    get:
+      tags:
+      - Provider
+      summary: Gets Provider according ID.
+      description: |
+        This endpoint could be used by __all user roles__.
+      parameters:
+      - name: providerId
+        in: path
+        description: Provider ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Provider entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Provider'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    put:
+      tags:
+      - Provider
+      summary: Updates Provider according ID.
+      description: |
+        This endpoint could be used only by __adminstrators__, __the user business creators__ and __root__.
+      parameters:
+      - name: providerId
+        in: path
+        description: Provider ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        $ref: '#/components/requestBodies/ProviderRequest'
+      responses:
+        "200":
+          description: Provider entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Provider'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    delete:
+      tags:
+      - Provider
+      summary: Deletes Provider according ID.
+      description: |
+        This endpoint could be used only by __adminstrators__, __the user business creators__ and __root__.
+      parameters:
+      - name: providerId
+        in: path
+        description: Provider ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "204":
+          description: Not Content
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+  /warehouses:
+    get:
+      tags:
+      - Warehouse
+      summary: Gets all warehouses relate to the the user business creator.
+      description: |
+        This endpoint could be used by __all user roles__.
+      responses:
+        "200":
+          description: List of warehouses
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Warehouse'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    post:
+      tags:
+      - Warehouse
+      summary: Creates a new Warehouse.
+      description: |
+        This endpoint could be used only by __adminstrators__, __the user business creators__ and __root__.
+      requestBody:
+        $ref: '#/components/requestBodies/WarehouseRequest'
+      responses:
+        "201":
+          description: Warehouse entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Warehouse'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+  /warehouse/{warehouseId}:
+    get:
+      tags:
+      - Warehouse
+      summary: Gets Warehouse according ID.
+      description: |
+        This endpoint could be used by __all user roles__.
+      parameters:
+      - name: warehouseId
+        in: path
+        description: Warehouse ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Warehouse entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Warehouse'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    put:
+      tags:
+      - Warehouse
+      summary: Updates Warehouse according ID.
+      description: |
+        This endpoint could be used only by __adminstrators__, __the user business creators__ and __root__.
+      parameters:
+      - name: warehouseId
+        in: path
+        description: Warehouse ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        $ref: '#/components/requestBodies/WarehouseRequest'
+      responses:
+        "200":
+          description: Warehouse entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Warehouse'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    delete:
+      tags:
+      - Warehouse
+      summary: Deletes Warehouse according ID.
+      description: |
+        This endpoint could be used only by __adminstrators__, __the user business creators__ and __root__.
+      parameters:
+      - name: warehouseId
+        in: path
+        description: Warehouse ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "204":
+          description: Not Content
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+  /users:
+    get:
+      tags:
+      - User
+      summary: Gets all users(admins and operators) relate to the the user business
+        creator.
+      description: |
+        This endpoint could be used only by __the user business creator__.
+      responses:
+        "200":
+          description: List of users relate to the user company creator
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/User'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    post:
+      tags:
+      - User
+      summary: Creates a new User.
+      description: |
+        This endpoint could be used only by __the user business creator__.
+      requestBody:
+        $ref: '#/components/requestBodies/UserRequest'
+      responses:
+        "201":
+          description: User entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+  /users/{userId}:
+    get:
+      tags:
+      - User
+      summary: Gets User according ID.
+      description: |
+        This endpoint could be used by __all user roles__.
+      parameters:
+      - name: userId
+        in: path
+        description: User ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: User entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+    delete:
+      tags:
+      - User
+      summary: Deletes User according ID.
+      description: |
+        This endpoint could be used only by __the user business creator__.
+      parameters:
+      - name: userId
+        in: path
+        description: User ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "204":
+          description: Not Content
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+  /users/{userId}/fullname:
+    put:
+      tags:
+      - User
+      summary: Updates User's fullname according ID.
+      description: |
+        This endpoint could be used by __all user roles__.
+      parameters:
+      - name: userId
+        in: path
+        description: User ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        $ref: '#/components/requestBodies/UserUpdateFullnameRequest'
+      responses:
+        "200":
+          description: User entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+  /users/{userId}/role:
+    put:
+      tags:
+      - User
+      summary: Updates User's role according ID.
+      description: |
+        This endpoint could be used only by __the user business creator__.
+      parameters:
+      - name: userId
+        in: path
+        description: User ID
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      requestBody:
+        $ref: '#/components/requestBodies/UserUpdateRoleRequest'
+      responses:
+        "200":
+          description: User entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "404":
+          description: The specified resource was not found
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+  /users/password:
+    put:
+      tags:
+      - User
+      summary: Updates the password of the logged in user.
+      description: |
+        This endpoint could be used by __all user roles__.\
+        \
+        This functionality is very important because when the __UBC__ creates a new     administrator or operator, the __UBC__ will get a random password for that new user, he will provide the password to the user for use it in th first time. Then, He will need to change it by a better password.
+      requestBody:
+        $ref: '#/components/requestBodies/UserPasswordRequest'
+      responses:
+        "200":
+          description: User entity
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/User'
+        "400":
+          description: Token, ID or some required params are missing.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+        "500":
+          description: Something went wrong on the server.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+      security:
+      - bearerAuth: []
+components:
+  schemas:
+    Company:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Company ID.
+          format: int64
+        a:
+          type: string
+          description: Alias or Company's public name.
+          format: text
+          example: Tambo
+        in:
+          type: string
+          description: Identity name or Company's Real name.
+          format: text
+          example: Tiendas Tambo S.A.C
+        it:
+          type: string
+          description: Company's identity type.
+          format: text
+          example: RUC
+        inb:
+          type: string
+          description: Company's identity number.
+          format: text
+          example: "20563529378"
+        cuid:
+          type: integer
+          description: Creator user's ID.
+          format: int64
+        cd:
+          type: string
+          description: Creation Date.
+          format: date-time
+        lud:
+          type: string
+          description: Last update date.
+          format: date-time
+        s:
+          type: integer
+          description: Status where 0 means Deleted and 1 means Actived.
+          format: int
+          example: 0
+      description: Product manufacturer.
+      xml:
+        name: Company
+    User:
+      type: object
+      properties:
+        idu:
+          type: integer
+          description: User id
+          format: int64
+        un:
+          type: string
+          description: Username
+          format: text
+        fn:
+          type: string
+          description: Fullname
+          format: text
+        idr:
+          type: integer
+          description: Id role, values (1 = Operator, 2 = Admin, 3 = User business
+            creator and 4 = root).
+          format: int64
+        idcu:
+          type: integer
+          description: User creator id
+          format: int32
+        cd:
+          type: string
+          description: Creation date
+          format: date-time
+        lud:
+          type: string
+          description: Last update date
+          format: date-time
+        s:
+          type: integer
+          description: Status where 0 means Deleted and 1 means Actived.
+          example: 1
+      xml:
+        name: User
+    Warehouse:
+      type: object
+      properties:
+        idw:
+          type: integer
+          description: Warehouse ID
+          format: int64
+        n:
+          type: string
+          description: Name or Alias of the warehouse
+          format: text
+        a:
+          type: string
+          description: Address of the warehouse.
+          format: text
+        pn:
+          type: string
+          description: Phonenumber of the warehouse.
+          format: text
+        cuid:
+          type: integer
+          description: Creator user's ID.
+          format: int64
+        cd:
+          type: string
+          description: Creation Date.
+          format: date-time
+        lud:
+          type: string
+          description: Last update date.
+          format: date-time
+        s:
+          type: integer
+          description: Status where 0 means Deleted and 1 means Actived.
+          format: int
+          example: 1
+      xml:
+        name: Warehouse
+    Warehouse Company Match:
+      type: object
+      properties:
+        idwhc:
+          type: integer
+          description: Warehouse Company match ID
+          format: int64
+        idw:
+          type: integer
+          description: Warehouse ID
+          format: int64
+        idc:
+          type: integer
+          description: Company ID
+          format: int64
+        cuid:
+          type: integer
+          description: Creator user's ID.
+          format: int64
+        cd:
+          type: string
+          description: Creation Date.
+          format: date-time
+        lud:
+          type: string
+          description: Last update date.
+          format: date-time
+        s:
+          type: integer
+          description: Status where 0 means Deleted and 1 means Actived.
+          format: int
+          example: 1
+      description: This object links the companies which will store their products
+        in the related warehouse.
+      xml:
+        name: Warehouse Company match
+    Warehouse Supervidor Match:
+      type: object
+      properties:
+        idm:
+          type: integer
+          description: Warehouse Supervisor match ID
+          format: int64
+        idw:
+          type: integer
+          description: Warehouse ID
+          format: int64
+        idu:
+          type: integer
+          description: User ID who works in the warehouse
+          format: int64
+        cuid:
+          type: integer
+          description: Creator user's ID.
+          format: int64
+        cd:
+          type: string
+          description: Creation Date.
+          format: date-time
+        lud:
+          type: string
+          description: Last update date.
+          format: date-time
+        s:
+          type: integer
+          description: Status where 0 means Deleted and 1 means Actived.
+          format: int
+          example: 1
+      description: This object links the warehouse and the user who works in this
+        warehouse.
+      xml:
+        name: Warehouse Company match
+    Brand:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Brand's ID.
+          format: int64
+        n:
+          type: string
+          description: Brand's name.
+          format: text
+          example: Alicorp
+        cuid:
+          type: integer
+          description: Creator user's ID.
+          format: int64
+        cd:
+          type: string
+          description: Creation Date.
+          format: date-time
+        lud:
+          type: string
+          description: Last update date.
+          format: date-time
+        s:
+          type: integer
+          description: Status where 0 means Deleted and 1 means Actived.
+          format: int
+          example: 1
+      description: A type of product manufactured by a particular company under a
+        particular name.
+      xml:
+        name: Brand
+    Category:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Category's ID.
+          format: int64
+        n:
+          type: string
+          description: Category's name.
+          format: text
+          example: Alicorp, Victoria, Perpsico, ...
+        cuid:
+          type: integer
+          description: Creator user's ID.
+          format: int64
+        cd:
+          type: string
+          description: Creation Date.
+          format: date-time
+        lud:
+          type: string
+          description: Last update date.
+          format: date-time
+        s:
+          type: integer
+          description: Status where 0 means Deleted and 1 means Actived.
+          format: int
+          example: 1
+      description: A kind of sale item; such as soft drinks, cookies, alcohols, snacks
+        and so on.
+      xml:
+        name: Category
+    Unit:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Unit's ID.
+          format: int64
+        n:
+          type: string
+          description: Unit's name.
+          format: text
+          example: Box, Bag, Pack...
+        cuid:
+          type: integer
+          description: Creator user's ID.
+          format: int64
+        cd:
+          type: string
+          description: Creation Date.
+          format: date-time
+        lud:
+          type: string
+          description: Last update date.
+          format: date-time
+        s:
+          type: integer
+          description: Status where 0 means Deleted and 1 means Actived.
+          format: int
+          example: 1
+      description: A unit is a kind of storage unit of the sale items which could
+        be a Box, Package, Bag, etc.
+      xml:
+        name: Unit
+    Product:
+      type: object
+      properties:
+        idp:
+          type: integer
+          description: Product's ID.
+          format: int64
+        idb:
+          type: integer
+          description: Brand's ID.
+          format: int64
+        idc:
+          type: integer
+          description: Category's ID.
+          format: int64
+        n:
+          type: string
+          description: Product's name.
+          format: text
+          example: Coca Cola 3L, Inka kola 1.5L, ...
+        b:
+          type: string
+          description: Product's barcode.
+          format: text
+          example: 121133424424, 23243434343, 3434343434
+        i:
+          type: string
+          description: Product's big image.
+          format: text
+          example: https://.../image.png
+        t:
+          type: string
+          description: Product's small image usually used on item's list.
+          format: text
+          example: https://.../image_thumb.png
+        d:
+          type: string
+          description: Product's description.
+          format: text
+          example: La coca cola de 3 litros viene en un paquete de 4 botellas.
+        cuid:
+          type: integer
+          description: Creator user's ID.
+          format: int64
+        cd:
+          type: string
+          description: Creation Date.
+          format: date-time
+        lud:
+          type: string
+          description: Last update date.
+          format: date-time
+        s:
+          type: integer
+          description: Status where 0 means Deleted and 1 means Actived.
+          format: int
+          example: 1
+      description: A product is a sale item.
+      xml:
+        name: Product
+    Provider:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: Provider's ID.
+          format: int64
+        cpn:
+          type: string
+          description: Provider's company name.
+          format: text
+          example: Distribuidores Unidos S.A.C, Pepsico S.A.C.
+        cn:
+          type: string
+          description: Contact's name; Person who represents the provider company.
+          format: text
+          example: Jorge Perez
+        cp:
+          type: string
+          description: Contact's phone; Phonenumber of the person who represents the
+            provider company.
+          format: text
+          example: "51976453345"
+        cuid:
+          type: integer
+          description: Creator user's ID.
+          format: int64
+        cd:
+          type: string
+          description: Creation Date.
+          format: date-time
+        lud:
+          type: string
+          description: Last update date.
+          format: date-time
+        s:
+          type: integer
+          description: Status where 0 means Deleted and 1 means Actived.
+          format: int
+          example: 1
+      description: A provider is a person who represents a company which provide many
+        products.
+      xml:
+        name: Provider
+    Product Unit Match:
+      type: object
+      properties:
+        idpum:
+          type: integer
+          description: ID of product unit match.
+          format: int64
+        idp:
+          type: integer
+          description: Product's ID.
+          format: int64
+        idu:
+          type: integer
+          description: Unit's ID.
+          format: int64
+        isd:
+          type: boolean
+          description: Default unit of the product. If it's true, that means this
+            unit is going to be selected automatically every time the user registry
+            entries or exits of the product. It will makes the registration faster.
+          example: false
+        cuid:
+          type: integer
+          description: Creator user's ID.
+          format: int64
+        cd:
+          type: string
+          description: Creation Date.
+          format: date-time
+        lud:
+          type: string
+          description: Last update date.
+          format: date-time
+        s:
+          type: integer
+          description: Status where 0 means Deleted and 1 means Actived.
+          format: int
+          example: 1
+      description: One Product could have many units. For example, Casino(Cookies)
+        could be stored by Box or Packs. This object links the product and its units.
+      xml:
+        name: Product and Unit Match
+    Product Provider Match:
+      type: object
+      properties:
+        id:
+          type: integer
+          description: ID of product provider match.
+          format: int64
+        idprov:
+          type: integer
+          description: Provider's ID.
+          format: int64
+        idprod:
+          type: integer
+          description: Product's ID.
+          format: int64
+        cuid:
+          type: integer
+          description: Creator user's ID.
+          format: int64
+        cd:
+          type: string
+          description: Creation Date.
+          format: date-time
+        lud:
+          type: string
+          description: Last update date.
+          format: date-time
+        s:
+          type: integer
+          description: Status where 0 means Deleted and 1 means Actived.
+          format: int
+          example: 1
+      description: One provider could provides many products and also different brand
+        of products. This object links a provider and its products.
+      xml:
+        name: Product and Unit Match
+    Error:
+      required:
+      - error
+      - reason
+      type: object
+      properties:
+        error:
+          type: boolean
+          description: Is it an error?
+        reason:
+          type: string
+          description: Description of the error.
+          format: text
+      description: Error generated by the server.
+    inline_response_200:
+      type: object
+      properties:
+        t:
+          type: string
+          description: Token
+          format: text
+        u:
+          $ref: '#/components/schemas/User'
+  responses:
+    NotFoundResponse:
+      description: The specified resource was not found
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    UnauthorizedResponse:
+      description: Unauthorized
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    BadRequestResponse:
+      description: Token, ID or some required params are missing.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    InternalErrorResponse:
+      description: Something went wrong on the server.
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Error'
+    UserLoggedInResponse:
+      description: User Logged in response
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/inline_response_200'
+    GetBrandsResponse:
+      description: List of brands
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Brand'
+    GetOneBrandResponse:
+      description: Brand entity
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Brand'
+    GetUnitsResponse:
+      description: List of units
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Unit'
+    GetOneUnitResponse:
+      description: Unit entity
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Unit'
+    GetCategoriesResponse:
+      description: List of categories
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Category'
+    GetOneCategoryResponse:
+      description: Category entity
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Category'
+    GetProductsResponse:
+      description: List of products
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Product'
+    GetOneProductResponse:
+      description: Product entity
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Product'
+    GetProvidersResponse:
+      description: List of providers
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Provider'
+    GetOneProviderResponse:
+      description: Provider entity
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Provider'
+    GetCompaniesResponse:
+      description: List of companies
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Company'
+    GetOneCompanyResponse:
+      description: Company entity
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Company'
+    GetWarehousesResponse:
+      description: List of warehouses
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Warehouse'
+    GetOneWarehouseResponse:
+      description: Warehouse entity
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/Warehouse'
+    GetUsersResponse:
+      description: List of users relate to the user company creator
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/User'
+    GetOneUserResponse:
+      description: User entity
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/User'
+  parameters:
+    UserId:
+      name: userId
+      in: path
+      description: User ID
+      required: true
+      style: simple
+      explode: false
+      schema:
+        type: integer
+  requestBodies:
+    RegisterRequest:
+      description: User information that needs to be added to the system.
+      content:
+        application/json:
+          schema:
+            required:
+            - password
+            - username
+            type: object
+            properties:
+              username:
+                type: string
+                description: New Username
+                format: text
+              password:
+                type: string
+                description: Password
+                format: password
+              fullname:
+                type: string
+                description: User's Fullname(Optional)
+                format: text
+      required: true
+    LoginRequest:
+      description: Login request.
+      content:
+        application/json:
+          schema:
+            required:
+            - password
+            - username
+            type: object
+            properties:
+              username:
+                type: string
+                description: Username
+                format: text
+              password:
+                type: string
+                description: Password
+                format: password
+            example:
+              username: jmarkstar
+              password: abc123
+      required: true
+    OnlyNameRequest:
+      content:
+        application/json:
+          schema:
+            required:
+            - "n"
+            type: object
+            properties:
+              n:
+                type: string
+                description: Name
+                format: text
+    ProductRequest:
+      content:
+        application/json:
+          schema:
+            required:
+            - idb
+            - idc
+            - "n"
+            type: object
+            properties:
+              idb:
+                type: integer
+                description: Brand's ID.
+                format: int64
+              idc:
+                type: integer
+                description: Category's ID.
+                format: int64
+              n:
+                type: string
+                description: Product's name.
+                format: text
+                example: Coca Cola 3L, Inka kola 1.5L, ...
+              b:
+                type: string
+                description: Product's barcode.
+                format: text
+                example: 121133424424, 23243434343, 3434343434
+              i:
+                type: string
+                description: Product's big image.
+                format: text
+                example: https://.../image.png
+              t:
+                type: string
+                description: Product's small image usually used on item's list.
+                format: text
+                example: https://.../image_thumb.png
+              d:
+                type: string
+                description: Product's description.
+                format: text
+                example: La coca cola de 3 litros viene en un paquete de 4 botellas.
+    CompanyRequest:
+      content:
+        application/json:
+          schema:
+            required:
+            - in
+            - inb
+            - it
+            type: object
+            properties:
+              a:
+                type: string
+                description: Alias or Company's public name.
+                format: text
+                example: Tambo
+              in:
+                type: string
+                description: Identity name or Company's Real name.
+                format: text
+                example: Tiendas Tambo S.A.C
+              it:
+                type: string
+                description: Company's identity type.
+                format: text
+                example: RUC
+              inb:
+                type: string
+                description: Company's identity number.
+                format: text
+                example: "20563529378"
+    ProviderRequest:
+      content:
+        application/json:
+          schema:
+            required:
+            - cn
+            - cpn
+            type: object
+            properties:
+              cpn:
+                type: string
+                description: Provider's company name.
+                format: text
+                example: Distribuidores Unidos S.A.C, Pepsico S.A.C.
+              cn:
+                type: string
+                description: Contact's name; Person who represents the provider company.
+                format: text
+                example: Jorge Perez
+              cp:
+                type: string
+                description: Contact's phone; Phonenumber of the person who represents
+                  the provider company.
+                format: text
+                example: "51976453345"
+    UserRequest:
+      content:
+        application/json:
+          schema:
+            required:
+            - fn
+            - un
+            type: object
+            properties:
+              un:
+                type: string
+                description: Username
+                format: text
+              fn:
+                type: string
+                description: Fullname
+                format: text
+              idr:
+                type: integer
+                description: Id role, values (1 = Operator, 2 = Admin, 3 = User business
+                  creator and 4 = root).
+                format: int64
+    UserUpdateFullnameRequest:
+      content:
+        application/json:
+          schema:
+            required:
+            - fn
+            type: object
+            properties:
+              fn:
+                type: string
+                description: Fullname
+                format: text
+    UserUpdateRoleRequest:
+      content:
+        application/json:
+          schema:
+            type: object
+            properties:
+              idr:
+                type: integer
+                description: Id role, values (1 = Operator, 2 = Admin, 3 = User business
+                  creator and 4 = root).
+                format: int64
+    UserPasswordRequest:
+      content:
+        application/json:
+          schema:
+            required:
+            - npw
+            - opw
+            type: object
+            properties:
+              opw:
+                type: string
+                description: Old password
+                format: text
+              npw:
+                type: string
+                description: New Password
+                format: text
+    WarehouseRequest:
+      content:
+        application/json:
+          schema:
+            required:
+            - "n"
+            type: object
+            properties:
+              n:
+                type: string
+                description: Name or Alias of the warehouse
+                format: text
+              a:
+                type: string
+                description: Address of the warehouse.
+                format: text
+              pn:
+                type: string
+                description: Phonenumber of the warehouse.
+                format: text
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
