@@ -4,9 +4,15 @@ COMMENT=$1
 
 echo "$COMMENT"
 
-#jekyll clean build
+bundle exec jekyll clean build
+git add --all
+git commit -m "$COMMENT"
+git push
 
-#git add --all
+PROJECT_DIR="$(dirname "${BASH_SOURCE[0]}")"
 
-#git commit -m $COMMENT
+echo "$PROJECT_DIR"
 
+var=$(pwd)
+
+echo "$var"
