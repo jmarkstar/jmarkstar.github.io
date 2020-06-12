@@ -79,24 +79,62 @@
 				            </li>
 			        	</ul>
 					</div>
-          <h2 id="un-poquito-de-gradle">Un poquito de Gradle</h2>
+          <h2 id="gradle-para-desarrolladores-android">Gradle para desarrolladores Android</h2>
 
-<p>Gradle es una herramienta open source que automatiza la construction de un proyecto; en otras palabras compila tu codigo fuente, lo empaqueta en un ejecutable(<code class="highlighter-rouge">*.jar</code>, <code class="highlighter-rouge">*.apk</code>, etc) y finalmente corre las pruebas unitarias con solo ejecutar un comando que podria ser <code class="highlighter-rouge">./gradlew clean build</code> por ejemplo.</p>
+<p>En este articulo se esta haciendo uso de:</p>
 
-<p>Lo bueno de gradle es que puedes crear <code class="highlighter-rouge">plugins</code> y tus propios <code class="highlighter-rouge">tasks</code> y anadirlos a la ejecucion o correrlos individualmente.</p>
+<blockquote>
+  <p>Gradle 6.5</p>
+</blockquote>
+
+<blockquote>
+  <p>Kotlin DSL Script 1.1.3</p>
+</blockquote>
+
+<blockquote>
+  <p>Android Studio 4.0</p>
+</blockquote>
+
+<blockquote>
+  <p>Intellij IDEA 2020.1.2 Community Edition</p>
+</blockquote>
+
+<p>Gradle es una herramienta open source que automatiza la construction de un proyecto; en otras palabras compila tu codigo fuente fuente, lo empaqueta en un ejecutable(<code class="highlighter-rouge">*.jar</code>, <code class="highlighter-rouge">*.apk</code>, etc) y finalmente corre las pruebas unitarias con solo ejecutar un comando que podria ser <code class="highlighter-rouge">./gradlew clean build</code> por ejemplo.</p>
+
+<p>Lo bueno de gradle es que puedes crear tus propios <code class="highlighter-rouge">plugins</code> y  <code class="highlighter-rouge">tasks</code> para luego anadirlos a la ejecucion o correrlos individualmente.</p>
+
+<h3 id="kotlin-dsl-script">Kotlin DSL Script</h3>
+
+<p>Como desarrolladores android nos hemos acostumbrado a usar <strong>Gradle con Groovy DSL</strong> que Android Studio siempre crea y configura por defecto, como por ejemplo el archivo <code class="highlighter-rouge">build.gradle</code>. Pero ademas Gradle soporta <strong>Kotlin DSL Script</strong> que desde el anio 2019 esta empezando a tomar partido. <em>Kotlin DSL</em> no es nuevo, Gradle lo ha soportado desde la version 3.0 M2 desde el anio 2016, <a href="https://github.com/gradle/kotlin-dsl-samples/releases?after=v0.3.1">aqui la referencia!</a>.</p>
+
+<p>Los  scripts <em>Kotlin DSL</em> extienden a <code class="highlighter-rouge">*.kts</code>, por ejemplo <code class="highlighter-rouge">build.gradle.kts</code>.</p>
 
 <h2 id="gradle-es-uniproyecto-y-multiproyectos">Gradle es uniproyecto y multiproyectos</h2>
 
-<p>Gradle puede hacer build(ejecutar las tareas) de varios proyecto con un solo comando. Basicamente consiste en un <code class="highlighter-rouge">proyecto root</code> y varios <code class="highlighter-rouge">subproyectos</code>; estos subproyectos no necesariamente podrian estar dentro de la carpeta del proyecto <code class="highlighter-rouge">root</code>.</p>
+<p>Gradle puede hacer build(ejecutar las tareas) de varios proyecto en una sola ejecucion. Basicamente consiste en un <code class="highlighter-rouge">proyecto root</code> y varios <code class="highlighter-rouge">subproyectos</code>; estos subproyectos no necesariamente podrian estar dentro de la carpeta del proyecto <code class="highlighter-rouge">root</code>.</p>
 
-<p>Primero buscare explicar la estructura de un <code class="highlighter-rouge">gradle single project</code>. En otras palabras, un proyecto gradle sin subproyectos. Para esto me apoyare de <code class="highlighter-rouge">Intellij IDEA CE</code> y create un proyecto gradle tal cual la image de abajo, luego de ese paso es darle un nombre al proyecto.</p>
+<p><strong>Un proyecto creado con Android Studio es de tipo multiproyectos porque conforma un proyecto root y sus modulos, estos modulos tambien son proyectos gradle que se podrian ejecutar individualmente.</strong></p>
 
-<p style="text-align:center;"><img src="/assets/img/gradle-android-project/gradle-singleproject-1.png" width="250" title="Estructura de Proyecto Maven" alt="Estructura de Proyecto Gradle" /></p>
+<p><strong>Entender como funciona un single project ayudara a que sea mas facil entender un proyecto gradle de tipo multiproyectos</strong></p>
 
-<p>Gradle tiene un ciclo de vida que consta de 3 fases; iniciacion, configuracion y ejecucion, es aqui a donde quiero llegar.</p>
+<h3 id="gradle-single-project">Gradle Single project</h3>
+
+<p>Un <code class="highlighter-rouge">gradle single project</code> es un proyecto gradle sin subproyectos. Para esto me apoyare de <code class="highlighter-rouge">Intellij IDEA CE</code> y creare un proyecto gradle tal cual la image de abajo, luego de ese paso es darle un nombre al proyecto.</p>
+
+<p style="text-align:center;"><img src="/assets/img/gradle-android-project/gradle-singleproject-1.png" width="300" title="Creando un proyecto gradle" alt="Creando un proyecto gradle" /></p>
+
+<p>Este proyecto contiene unos archivos gradle que estan relacionados a su ciclo de vida; asi que buscare explicar ambos a la vez; la utilidad de los archivos y el ciclo de vida de gradle.</p>
+
+<p style="text-align:center;"><img src="/assets/img/gradle-android-project/gradle-singleproject-2.png" width="250" title="Estructura de Proyecto Gradle" alt="Estructura de Proyecto Gradle" /></p>
+
+<p>Gradle tiene un ciclo de vida que consta de 3 fases; iniciacion, configuracion y ejecucion.</p>
 
 <ul>
-  <li>Iniciacion es donde puedes anadir o cambiar el valor de las propiedades del ambiente gradle en tu proyecto y asignar cual de los proyectos correran en la ejecucion.</li>
+  <li>
+    <p>El <strong>la Iniciacion</strong> es donde puedes anadir o cambiar el valor de las propiedades del ambiente gradle en tu proyecto y en caso de un multiproyectos, mensionar a todos los subproyectos que correran en la ejecucion.</p>
+
+    <p>Para esto existe el archivo <strong>settings.gradle.kts</strong></p>
+  </li>
 </ul>
 
 <script src="https://apis.google.com/js/plusone.js"></script>
