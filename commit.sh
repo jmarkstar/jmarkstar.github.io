@@ -5,7 +5,8 @@ COMMENT=$1
 echo "$COMMENT"
 
 #   Build /_site
-bundle exec jekyll clean build
+bundle exec jekyll clean
+bundle exec jekyll build
 
 #Commit jekyll files to develop
 git add --all
