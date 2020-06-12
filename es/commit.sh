@@ -14,9 +14,9 @@ fi
 bundle exec jekyll build
 
 #   Commit jekyll files to develop
-git add --all
-git commit -m "$COMMENT"
-git push
+#git add --all
+#git commit -m "$COMMENT"
+#git push
 
 #   Creates a backup folder for _site
 BACKUP_DIR_NAME="backup_site"
@@ -44,7 +44,7 @@ git checkout master
 rm *
 cp -a "$BACKUP_DIR/." $PROJECT_DIR
 
-: ' 
+:' 
 #   Commit HTML to master
 git add --all
 git commit -m "$COMMENT"
