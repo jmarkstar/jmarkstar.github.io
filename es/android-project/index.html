@@ -79,25 +79,24 @@
 				            </li>
 			        	</ul>
 					</div>
-          <h2 id="gradle-para-desarrolladores-android">Gradle para desarrolladores Android</h2>
+          <h3 id="gradle-para-desarrolladores-android">Gradle para desarrolladores Android</h3>
 
 <p>En este articulo se esta haciendo uso de:</p>
 
-<blockquote>
-  <p>Gradle 6.5</p>
-</blockquote>
-
-<blockquote>
-  <p>Kotlin DSL Script 1.1.3</p>
-</blockquote>
-
-<blockquote>
-  <p>Android Studio 4.0</p>
-</blockquote>
-
-<blockquote>
-  <p>Intellij IDEA 2020.1.2 Community Edition</p>
-</blockquote>
+<ul>
+  <li>
+    <p>Gradle 6.5</p>
+  </li>
+  <li>
+    <p>Kotlin DSL Script 1.1.3</p>
+  </li>
+  <li>
+    <p>Android Studio 4.0</p>
+  </li>
+  <li>
+    <p>Intellij IDEA 2020.1.2 Community Edition</p>
+  </li>
+</ul>
 
 <p>Gradle es una herramienta open source que automatiza la construction de un proyecto; en otras palabras compila tu codigo fuente fuente, lo empaqueta en un ejecutable(<code class="highlighter-rouge">*.jar</code>, <code class="highlighter-rouge">*.apk</code>, etc) y finalmente corre las pruebas unitarias con solo ejecutar un comando que podria ser <code class="highlighter-rouge">./gradlew clean build</code> por ejemplo.</p>
 
@@ -109,7 +108,7 @@
 
 <p>Los  scripts <em>Kotlin DSL</em> extienden a <code class="highlighter-rouge">*.kts</code>, por ejemplo <code class="highlighter-rouge">build.gradle.kts</code>.</p>
 
-<h2 id="gradle-es-uniproyecto-y-multiproyectos">Gradle es uniproyecto y multiproyectos</h2>
+<h3 id="gradle-es-uniproyecto-y-multiproyectos">Gradle es uniproyecto y multiproyectos</h3>
 
 <p>Gradle puede hacer build(ejecutar las tareas) de varios proyecto en una sola ejecucion. Basicamente consiste en un <code class="highlighter-rouge">proyecto root</code> y varios <code class="highlighter-rouge">subproyectos</code>; estos subproyectos no necesariamente podrian estar dentro de la carpeta del proyecto <code class="highlighter-rouge">root</code>.</p>
 
@@ -117,7 +116,7 @@
 
 <p><strong>Entender como funciona un single project ayudara a que sea mas facil entender un proyecto gradle de tipo multiproyectos</strong></p>
 
-<h3 id="gradle-single-project">Gradle Single project</h3>
+<h4 id="gradle-single-project">Gradle Single project</h4>
 
 <p>Un <code class="highlighter-rouge">gradle single project</code> es un proyecto gradle sin subproyectos. Para esto me apoyare de <code class="highlighter-rouge">Intellij IDEA CE</code> y creare un proyecto gradle tal cual la image de abajo, luego de ese paso es darle un nombre al proyecto.</p>
 
