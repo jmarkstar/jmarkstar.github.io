@@ -50,6 +50,6 @@ git commit -m "$COMMENT"
 git push
 
 #   Clean everything
-#git checkout develop
 rm -rf $BACKUP_DIR
-#bundle exec jekyll build 
+git checkout develop
+bundle exec jekyll build 
