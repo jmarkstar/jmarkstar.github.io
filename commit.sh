@@ -33,15 +33,15 @@ cd $PROJECT_DIR
 git checkout master
 
 #remove and move the files from /backup_site
-rm *
-cp -f -a "$BACKUP_DIR/." $PROJECT_DIR
+#rm *
+#cp -f -a "$BACKUP_DIR/." $PROJECT_DIR
 
 #Commit HTML to master
-git add --all
-git commit -m "$COMMENT"
-git push
+#git add --all
+#git commit -m "$COMMENT"
+#git push
 
 #Clean everything
-git checkout develop
-rm $BACKUP_DIR
-bundle exec jekyll build
+#git checkout develop
+#rm $BACKUP_DIR
+#bundle exec jekyll build
