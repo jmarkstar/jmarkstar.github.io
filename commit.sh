@@ -30,7 +30,7 @@ cp -a "$SITE_DIR/." $BACKUP_DIR
 
 #Change to master master branch
 cd $PROJECT_DIR
-git checkout master
+#git checkout master
 
 #remove and move the files from /backup_site
 #rm *
