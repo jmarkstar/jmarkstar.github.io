@@ -16,7 +16,7 @@ Lo bueno de gradle es que puedes crear `plugins` y tus propios `tasks` y anadirl
 
 ## Gradle es uniproyecto y multiproyectos
 
-Gradle puede hacer build(ejecutar las tareas) de varios proyecto con un solo comando. Basicamente consiste en un `proyecto root` y varios `subproyectos`; estos subproyectos no necesariamente deberian estar dentro de la carpeta del proyecto `root`.
+Gradle puede hacer build(ejecutar las tareas) de varios proyecto con un solo comando. Basicamente consiste en un `proyecto root` y varios `subproyectos`; estos subproyectos no necesariamente podrian estar dentro de la carpeta del proyecto `root`.
 
 Primero buscare explicar la estructura de un `gradle single project`. En otras palabras, un proyecto gradle sin subproyectos. Para esto me apoyare de `Intellij IDEA CE` y create un proyecto gradle tal cual la image de abajo, luego de ese paso es darle un nombre al proyecto.
 
