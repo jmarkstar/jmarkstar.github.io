@@ -8,17 +8,17 @@ categories: Android
 tags: [Gradle, Android]
 ---
 
-## Gradle para desarrolladores Android
+### Gradle para desarrolladores Android
 
 En este articulo se esta haciendo uso de:
 
-> Gradle 6.5
+* Gradle 6.5
 
-> Kotlin DSL Script 1.1.3
+* Kotlin DSL Script 1.1.3
 
-> Android Studio 4.0
+* Android Studio 4.0
 
-> Intellij IDEA 2020.1.2 Community Edition 
+* Intellij IDEA 2020.1.2 Community Edition 
 
 Gradle es una herramienta open source que automatiza la construction de un proyecto; en otras palabras compila tu codigo fuente fuente, lo empaqueta en un ejecutable(`*.jar`, `*.apk`, etc) y finalmente corre las pruebas unitarias con solo ejecutar un comando que podria ser `./gradlew clean build` por ejemplo. 
 
@@ -30,7 +30,7 @@ Como desarrolladores android nos hemos acostumbrado a usar __Gradle con Groovy D
 
 Los  scripts *Kotlin DSL* extienden a `*.kts`, por ejemplo `build.gradle.kts`.
 
-## Gradle es uniproyecto y multiproyectos
+### Gradle es uniproyecto y multiproyectos
 
 Gradle puede hacer build(ejecutar las tareas) de varios proyecto en una sola ejecucion. Basicamente consiste en un `proyecto root` y varios `subproyectos`; estos subproyectos no necesariamente podrian estar dentro de la carpeta del proyecto `root`.
 
@@ -38,7 +38,7 @@ __Un proyecto creado con Android Studio es de tipo multiproyectos porque conform
 
 __Entender como funciona un single project ayudara a que sea mas facil entender un proyecto gradle de tipo multiproyectos__
 
-### Gradle Single project
+#### Gradle Single project
 
 Un `gradle single project` es un proyecto gradle sin subproyectos. Para esto me apoyare de `Intellij IDEA CE` y creare un proyecto gradle tal cual la image de abajo, luego de ese paso es darle un nombre al proyecto.
 
