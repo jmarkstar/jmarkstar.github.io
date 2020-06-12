@@ -26,7 +26,7 @@ PARENT_DIR=$(pwd)
 BACKUP_DIR="$PARENT_DIR/$BACKUP_DIR_NAME"
 
 if [ -d "$BACKUP_DIR" ]; then
-   rmdir $BACKUP_DIR
+   rmdir -f $BACKUP_DIR
 fi
 
 mkdir $BACKUP_DIR_NAME
@@ -51,5 +51,5 @@ git push
 
 #   Clean everything
 #git checkout develop
-rmdir $BACKUP_DIR
+rmdir -f $BACKUP_DIR
 #bundle exec jekyll build 
